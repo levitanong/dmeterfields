@@ -1,7 +1,6 @@
 (ns om-prerender.boot-om-prerender
   {:boot/export-tasks true}
   (:require
-   [barado.core :as barado]
    [boot.core :as boot :refer [deftask]]
    [boot.pod :as pod]
    [boot.util :as util]
@@ -18,7 +17,7 @@
              :content "IE=edge"}]
      [:meta {:name "viewport"
              :content "width=device-width, initial-scale=1"}]
-     [:title "Barado"]
+     [:title "D'Meter Fields"]
      (hiccup/include-css "icons/style.css")
      (hiccup/include-css "css/styles.css")
      (hiccup/include-css "https://fonts.googleapis.com/css?family=Roboto:300,400,700")]
