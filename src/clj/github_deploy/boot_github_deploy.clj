@@ -19,6 +19,7 @@
       (do
         (util/info "Repo is clean. Checking out master.")
         (git/git-checkout repo "master")
+        (git/git-add repo ".")
         (util/info (git/git-status repo))))
     ))
 
