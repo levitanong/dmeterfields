@@ -23,7 +23,10 @@
         (git/git-checkout repo "master")
         (git/git-merge repo latest-commit)
         (util/info "Merged. Pushing")
-        (-> repo .push .call)
+        (-> repo
+          .push
+          (.setRemote "origin")
+          .call)
         (util/info "Pushed.")
         ))
     ))
