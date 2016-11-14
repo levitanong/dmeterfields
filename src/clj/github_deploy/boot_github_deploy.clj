@@ -5,7 +5,8 @@
    [boot.util :as util]
    [clj-jgit.porcelain :as git]
    [clj-jgit.querying :as git-query]
-   [clojure.java.io :as io]))
+   [clojure.java.io :as io]
+   [clojure.set :as set]))
 
 (def repo-states #{:added :changed :missing :modified :removed :untracked})
 
@@ -15,8 +16,7 @@
         current-branch (git/git-branch-current repo)
         latest-commit (first (git/git-log repo))
         status (git/git-status repo)
-        clean? (every? (fn [state] (empty? (get status state)))
-                 repo-states)]
+        clean? (->> status vals (reduce set/union) empty?)]
     (if-not clean?
       (util/fail (str "Repo not clean: " status))
       (do
@@ -24,11 +24,10 @@
         (git/git-checkout repo "master")
         (git/git-merge repo latest-commit)
         (util/info "Merged. Pushing")
-        (git/with-identity {:public (slurp (io/file "~/.ssh/id_rsa.pub"))}
-          (-> repo
-            .push
-            (.setRemote "origin")
-            .call))
+        (-> repo
+          .push
+          (.setRemote "origin")
+          .call)
         (util/info "Pushed.")
         ))
     ))
