@@ -4,7 +4,8 @@
    [boot.core :as boot :refer [deftask]]
    [boot.util :as util]
    [clj-jgit.porcelain :as git]
-   [clj-jgit.querying :as git-query]))
+   [clj-jgit.querying :as git-query]
+   [clojure.java.io :as io]))
 
 (def repo-states #{:added :changed :missing :modified :removed :untracked})
 
@@ -23,8 +24,8 @@
         (git/git-checkout repo "master")
         (git/git-merge repo latest-commit)
         (util/info "Merged. Pushing")
-        (git/with-identity {:private "~/.ssh/id_rsa"
-                            :public "~/.ssh/id_rsa.pub"}
+        (git/with-identity {:private (io/file "~/.ssh/id_rsa")
+                            :public (io/file "~/.ssh/id_rsa.pub")}
           (-> repo
             .push
             (.setRemote "origin")
