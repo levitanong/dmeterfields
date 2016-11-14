@@ -22,7 +22,9 @@
         (util/info "Repo is clean. Checking out master.")
         (git/git-checkout repo "master")
         (git/git-merge repo latest-commit)
-        ;; (git/git-add repo ".")
-        (util/info (str (git/git-status repo)))))
+        (util/info "Merged. Pushing")
+        (-> repo .push .call)
+        (util/info "Pushed.")
+        ))
     ))
 
