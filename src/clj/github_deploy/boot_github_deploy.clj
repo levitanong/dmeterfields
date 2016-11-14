@@ -24,8 +24,8 @@
         (git/git-checkout repo "master")
         (git/git-merge repo latest-commit)
         (util/info "Merged. Pushing")
-        (git/with-identity {:private (io/file "~/.ssh/id_rsa")
-                            :public (io/file "~/.ssh/id_rsa.pub")}
+        (git/with-identity {:private (slurp "~/.ssh/id_rsa")
+                            :public (slurp "~/.ssh/id_rsa.pub")}
           (-> repo
             .push
             (.setRemote "origin")
