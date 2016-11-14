@@ -15,7 +15,10 @@
         clean? (every? (fn [state] (empty? (get status state)))
                  repo-states)]
     (if-not clean?
-      (util/fail (str "repo not clean: " status))
-      (println "repo is clean!"))
+      (util/fail (str "Repo not clean: " status))
+      (do
+        (util/info "Repo is clean. Checking out master.")
+        (git/git-checkout repo "master")
+        (util/info (git/git-status repo))))
     ))
 
