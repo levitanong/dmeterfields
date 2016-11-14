@@ -12,8 +12,8 @@
                           [pandeiro/boot-http "0.7.3" :scope "test"]
 
                           ;; clojure
-                          [org.clojure/clojure "1.9.0-alpha11"]
-                          [org.clojure/clojurescript "1.9.225"]
+                          [org.clojure/clojure "1.9.0-alpha14"]
+                          [org.clojure/clojurescript "1.9.293"]
                           [org.clojure/core.async "0.2.385"]
                           [org.clojure/test.check "0.9.0" :scope "test"]
                           [org.clojure/tools.nrepl "0.2.12" :scope "test"]
@@ -36,7 +36,8 @@
  '[org.martinklepsch.boot-garden :refer [garden]]
  '[pandeiro.boot-http    :refer [serve]]
  '[danielsz.autoprefixer :refer [autoprefixer]]
- )
+ '[om-prerender.boot-om-prerender :refer [om-prerender]]
+ '[om-style.boot-om-style :refer [om-style]])
 
 (deftask dev
   "Run app"
@@ -45,7 +46,7 @@
    (serve)
    (watch)
    (speak)
-   (reload :on-jsload 'dmeterfields.core/main)
+   (reload)
    (cljs-repl)
    (cljs :source-map true :optimizations :none)
    (garden :styles-var 'dmeterfields.styles/base
