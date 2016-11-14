@@ -24,11 +24,10 @@
         (git/git-checkout repo "master")
         (git/git-merge repo latest-commit)
         (util/info "Merged. Pushing")
-        (git/with-identity {:public (slurp (io/file "~/.ssh/id_rsa.pub"))}
-          (-> repo
-            .push
-            (.setRemote "origin")
-            .call))
+        (-> repo
+          .push
+          (.setRemote "origin")
+          .call)
         (util/info "Pushed.")
         ))
     ))
