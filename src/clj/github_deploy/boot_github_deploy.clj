@@ -22,22 +22,22 @@
         latest-commit (first (git/git-log repo))
         status (git/git-status repo)]
     (if-not (clean? repo)
-      (util/fail (str "Repo not clean: " status))
+      (util/fail (str "Repo not clean: " status "\n"))
       (do
-        (util/info "Repo is clean. Checking out master.")
+        (util/info "Repo is clean. Checking out master. \n")
         (git/git-checkout repo "master")
         (git/git-merge repo latest-commit)
         (if-not (clean? repo)
-          (util/fail (str "Merge failed: " (git/git-status repo)))
+          (util/fail (str "Merge failed: " (git/git-status repo) "\n"))
           (do
-            (util/info "Merged. Pushing")
+            (util/info "Merged. Pushing.\n")
             (with-programs [git]
               (git "push")
-              (util/info "Pushed."))
+              (util/info "Pushed.\n"))
             (if-not (clean? repo)
-              (util/fail (str "Something went wrong. Repo is not clean."
+              (util/fail (str "Something went wrong. Repo is not clean.\n"
                            (git/git-status repo)))
               (do
                 (git/git-checkout repo working-branch)
-                (util/info "Deploy successful.")))))))))
+                (util/info "Deploy successful.\n")))))))))
 
