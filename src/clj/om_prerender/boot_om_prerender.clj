@@ -44,7 +44,9 @@
    c root SYM sym "The root component."]
   (let [tmp (boot/tmp-dir!)
         src-paths (vec (boot/get-env :source-paths))
-        ns-pod (ns-tracker-pod)]
+        ns-pod (ns-tracker-pod)
+        reconciler (-> reconciler resolve var-get)
+        root (-> root resolve var-get)]
     (pod/with-eval-in ns-pod
       (require 'ns-tracker.core)
       (def cns (ns-tracker.core/ns-tracker ~src-paths)))

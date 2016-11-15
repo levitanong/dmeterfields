@@ -1,8 +1,8 @@
 (ns dmeterfields.core
   (:require
-   [om.next :as om :refer-macros [defui]]
+   [om.next :as om :refer [defui]]
    [om.dom :as dom]
-   [goog.dom :as gdom]))
+   #?(:cljs [goog.dom :as gdom])))
 
 (def app-state (atom {}))
 
@@ -14,6 +14,7 @@
 (def reconciler
   (om/reconciler {:state app-state}))
 
-(om/add-root! reconciler
-  Root
-  (gdom/getElement "app"))
+#?(:cljs
+   (om/add-root! reconciler
+     Root
+     (gdom/getElement "app")))
