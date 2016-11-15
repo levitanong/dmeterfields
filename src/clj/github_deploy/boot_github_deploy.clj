@@ -37,7 +37,7 @@
               (let [included-files (remove #(re-find #"./target/main\.out" (.getPath %))
                                      (.listFiles (io/file "./target")))]
                 (doseq [file included-files]
-                  (io/copy file "./")))
+                  (io/copy file (io/file "./"))))
               #_(with-programs [cp git]
                 (cp "-r" "-f" "./target/index.html" "./")
                 (git "add" "--all"))
