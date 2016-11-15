@@ -36,9 +36,12 @@
             (do
               (util/info "Merged. Moving contents of /target to /\n")
               (let [included-files (remove #(re-find #"./target/main\.out" (.getPath %))
-                                     (.listFiles (io/file "./target")))]
+                                     (.listFiles (io/file "./target")))
+                    out (io/file "./")]
                 (doseq [file included-files]
-                  (fs/copy+ file (io/file "./"))))
+                  (if (fs/directory? file)
+                    (fs/copy-dir file out)
+                    (fs/copy+ file out))))
               #_(with-programs [cp git]
                 (cp "-r" "-f" "./target/index.html" "./")
                 (git "add" "--all"))
