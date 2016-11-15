@@ -8,7 +8,8 @@
    [clj-jgit.querying :as git-query]
    [clojure.java.io :as io]
    [clojure.set :as set]
-   [me.raynes.conch :refer [with-programs]]))
+   [me.raynes.conch :refer [with-programs]]
+   [me.raynes.fs :as fs]))
 
 (def repo-states #{:added :changed :missing :modified :removed :untracked})
 
@@ -37,7 +38,7 @@
               (let [included-files (remove #(re-find #"./target/main\.out" (.getPath %))
                                      (.listFiles (io/file "./target")))]
                 (doseq [file included-files]
-                  (io/copy file (io/file "./"))))
+                  (fs/copy+ file (io/file "./"))))
               #_(with-programs [cp git]
                 (cp "-r" "-f" "./target/index.html" "./")
                 (git "add" "--all"))
