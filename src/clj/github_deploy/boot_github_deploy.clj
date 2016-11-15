@@ -35,7 +35,7 @@
             (do
               (util/info "Merged. Moving contents of /target to /\n")
               (with-programs [cp git]
-                (cp "-r" "-f" "target/*" "./")
+                (cp "-r" "-f" (symbol "./target/*") "./")
                 (git "add" "--all"))
               #_(with-programs [git]
                   (git "push")
