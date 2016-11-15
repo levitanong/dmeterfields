@@ -36,8 +36,8 @@
             (do
               (util/info "Merged. Moving contents of /target to /\n")
               (let [included-files (remove #(re-find #"./target/main\.out" (.getPath %))
-                                     (.listFiles (io/file "./target")))
-                    out (io/file "./")]
+                                     (.listFiles (fs/file "./target")))
+                    out (fs/file "./")]
                 (doseq [file included-files]
                   (if (fs/directory? file)
                     (fs/copy-dir file out)
