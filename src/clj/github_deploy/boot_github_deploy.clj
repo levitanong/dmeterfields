@@ -41,7 +41,7 @@
                 (doseq [file included-files]
                   (if (fs/directory? file)
                     (fs/copy-dir file out)
-                    (fs/copy+ file out))))
+                    (fs/copy file out))))
               #_(with-programs [cp git]
                 (cp "-r" "-f" "./target/index.html" "./")
                 (git "add" "--all"))
