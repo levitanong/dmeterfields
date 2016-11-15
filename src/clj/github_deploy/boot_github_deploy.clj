@@ -6,11 +6,8 @@
    [clj-jgit.porcelain :as git]
    [clj-jgit.querying :as git-query]
    [clojure.java.io :as io]
-   [clojure.set :as set])
-  (:import
-   (org.eclipse.jgit.transport
-     JschConfigSessionFactory
-     SshSessionFactory)))
+   [clojure.set :as set]
+   [me.raynes.conch :refer [with-programs]]))
 
 (def repo-states #{:added :changed :missing :modified :removed :untracked})
 
@@ -21,25 +18,17 @@
         latest-commit (first (git/git-log repo))
         status (git/git-status repo)
         clean? (->> status vals (reduce set/union) empty?)
-        session-factory (configure (JschConfigSessionFactory.)
-                          [hc session]
-                          (.setPassword session "passphrase"))]
-    (SshSesssionFactory/setInstance session-factory)
-    (-> repo
-      .push
-      (.setRemote "origin")
-      .call)
-    #_(git/with-identity {:passphrase 
-                        :public (slurp "~/.ssh/id_rsa.pub")}
-      (println "hi"))
-    #_(if-not clean?
+        ]
+    (if-not clean?
       (util/fail (str "Repo not clean: " status))
       (do
         (util/info "Repo is clean. Checking out master.")
         (git/git-checkout repo "master")
         (git/git-merge repo latest-commit)
         (util/info "Merged. Pushing")
-        (-> repo
+        (with-programs [git]
+          (git "push -u origin master"))
+        #_(-> repo
           .push
           (.setRemote "origin")
           .call)
