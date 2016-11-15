@@ -46,7 +46,7 @@
                       (fs/copy-dir file dest)
                       (fs/copy file dest))
                     (when verbose?
-                      (util/info (str "Copied" (.getPath file) "to" dest "/n"))))))
+                      (util/info (str "Copied" (.getPath file) "to" dest "\n"))))))
               (with-programs [git]
                 (git "add" "--all")
                 (git/git-commit repo "Deploy")
