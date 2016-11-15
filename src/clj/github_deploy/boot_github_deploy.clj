@@ -39,7 +39,7 @@
                                      (.listFiles (fs/file "./target")))
                     out (fs/file "./")]
                 (doseq [file included-files]
-                  (if (fs/directory? file)
+                  (if (fs/directory? (.getPath file))
                     (fs/copy-dir file out)
                     (fs/copy file out))))
               #_(with-programs [cp git]
