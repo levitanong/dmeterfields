@@ -52,8 +52,11 @@
   (comp
     (serve)
     (watch)
-    (speak)
     (reload)
+    (speak)
+    (om-prerender
+      :reconciler 'dmeterfields.core/reconciler
+      :root 'dmeterfields.core/Root)
     (cljs-repl)
     (cljs
       :source-map true
@@ -68,9 +71,13 @@
   "Prod"
   []
   (comp
+    (om-prerender
+      :reconciler 'dmeterfields.core/reconciler
+      :root 'dmeterfields.core/Root)
     (cljs :optimizations :advanced)
     (garden
       :styles-var 'dmeterfields.styles/base
       :output-to "css/styles.css")
     (autoprefixer :files ["styles.css"])
-    (target)))
+    (target)
+    (github-deploy)))

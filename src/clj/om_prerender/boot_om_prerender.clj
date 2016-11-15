@@ -41,7 +41,7 @@
 (deftask om-prerender
   "Prerender frontend UI to index.html"
   [r reconciler SYM sym "The reconciler."
-   c root-component SYM sym "The root component."]
+   c root SYM sym "The root component."]
   (let [tmp (boot/tmp-dir!)
         src-paths (vec (boot/get-env :source-paths))
         ns-pod (ns-tracker-pod)]
@@ -56,7 +56,7 @@
         (util/info "Prerendering...\n")
         (let [out-file (io/file tmp "index.html")]
           (render-to-file! out-file
-            reconciler root-component))
+            reconciler root))
         (util/info "Prerendering complete.\n")
         (-> fileset
           (boot/add-resource tmp)
