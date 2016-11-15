@@ -3,4 +3,4 @@
    [garden.color :refer [rgba]]))
 
 (def base
-  [:body {:background-color "#333"}])
+  [:body {:background-color "#eee"}])
