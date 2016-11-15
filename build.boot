@@ -3,7 +3,7 @@
 
 (set-env!
   :resource-paths #{"resources"}
-  :source-paths #{"src/cljs" "src/clj"}
+  :source-paths #{"src/cljc" "src/clj"}
   :dependencies
   '[[adzerk/boot-cljs "1.7.228-2" :scope "test"]
     [adzerk/boot-cljs-repl   "0.3.3" :scope "test"]
@@ -42,6 +42,8 @@
   '[org.martinklepsch.boot-garden :refer [garden]]
   '[pandeiro.boot-http    :refer [serve]]
   '[danielsz.autoprefixer :refer [autoprefixer]]
+  ;; '[om.next :as om]
+  '[dmeterfields.core]
   '[om-prerender.boot-om-prerender :refer [om-prerender]]
   '[om-style.boot-om-style :refer [om-style]]
   '[github-deploy.boot-github-deploy :refer [github-deploy]])
@@ -79,5 +81,9 @@
       :styles-var 'dmeterfields.styles/base
       :output-to "css/styles.css")
     (autoprefixer :files ["styles.css"])
-    (target)
-    (github-deploy)))
+    (target)))
+
+(deftask deploy
+  "deploy"
+  []
+  (github-deploy))
