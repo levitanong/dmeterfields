@@ -18,11 +18,13 @@
     vals (reduce set/union) empty?))
 
 (deftask github-deploy
-  [i ignore-regex MATCH #{regex} "The set of regexes to ignore"]
+  [i ignore-regex MATCH #{regex} "The set of regexes to ignore"
+   v verbose? BOOL bool "Verbose"]
   (let [repo (git/load-repo ".")
         working-branch (git/git-branch-current repo)
         latest-commit (first (git/git-log repo))
-        status (git/git-status repo)]
+        status (git/git-status repo)
+        verbose? (when (nil? verbose?) true)]
     (if (= "master" working-branch)
       (util/fail "Currently on master. Please switch to your working branch.\n")
       (if-not (clean? repo)
@@ -37,14 +39,17 @@
               (util/info "Merged. Moving contents of /target to /\n")
               (let [included-files (remove #(re-find #"./target/main\.out" (.getPath %))
                                      (.listFiles (fs/file "./target")))
-                    out (fs/file "./")]
+                    dest (if (fs/directory? (.getPath file))
+                           (fs/file "./") (fs/file "./" (.getName file)))]
                 (doseq [file included-files]
                   (if (fs/directory? (.getPath file))
-                    (fs/copy-dir file out)
-                    (fs/copy file out))))
+                    (fs/copy-dir file dest)
+                    (fs/copy file dest))
+                  (when verbose?
+                    (util/info (str "Copied" (.getPath file) "to" dest "/n")))))
               #_(with-programs [cp git]
-                (cp "-r" "-f" "./target/index.html" "./")
-                (git "add" "--all"))
+                  (cp "-r" "-f" "./target/index.html" "./")
+                  (git "add" "--all"))
               #_(with-programs [git]
                   (git "push")
                   (util/info "Pushed.\n"))
