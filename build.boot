@@ -28,6 +28,7 @@
     [hiccup "1.0.5" :scope "test"]
     [clj-jgit "0.8.9" :scope "test"]
     [me.raynes/conch "0.8.0" :scope "test"]
+    [me.raynes/fs "1.4.6" :scope "test"]
 
     ;; client
     [org.omcljs/om "1.0.0-alpha47"]
