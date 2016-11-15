@@ -9,7 +9,7 @@
 (defui Root
   Object
   (render [this]
-    (dom/div nil "om loaded")))
+    (dom/div nil "om loaded testing")))
 
 (def reconciler
   (om/reconciler {:state app-state}))
