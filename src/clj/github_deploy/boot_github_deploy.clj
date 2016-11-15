@@ -17,7 +17,7 @@
     vals (reduce set/union) empty?))
 
 (deftask github-deploy
-  []
+  [i ignore-regex MATCH #{regex} "The set of regexes to ignore"]
   (let [repo (git/load-repo ".")
         working-branch (git/git-branch-current repo)
         latest-commit (first (git/git-log repo))
@@ -34,7 +34,10 @@
             (util/fail (str "Merge failed: " (git/git-status repo) "\n"))
             (do
               (util/info "Merged. Moving contents of /target to /\n")
-              (println (file-seq (io/file "./target")))
+              (let [included-files (remove #(re-find #"./target/main\.out" (.getPath %))
+                                     (.listFiles (io/file "./target")))]
+                (doseq [file included-files]
+                  (io/copy file "./")))
               #_(with-programs [cp git]
                 (cp "-r" "-f" "./target/index.html" "./")
                 (git "add" "--all"))
