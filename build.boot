@@ -3,11 +3,11 @@
 
 (set-env!
   :resource-paths #{"resources"}
-  :source-paths #{"src/cljs" "src/clj" "src/garden"}
+  :source-paths #{"src/cljs" "src/clj"}
   :dependencies
-  '[[adzerk/boot-cljs "1.7.228-1" :scope "test"]
+  '[[adzerk/boot-cljs "1.7.228-2" :scope "test"]
     [adzerk/boot-cljs-repl   "0.3.3" :scope "test"]
-    [adzerk/boot-reload "0.4.11" :scope "test"]
+    [adzerk/boot-reload "0.4.13" :scope "test"]
     [com.cemerick/piggieback "0.2.1"  :scope "test"]
     [weasel                  "0.7.0"  :scope "test"]
     [pandeiro/boot-http "0.7.3" :scope "test"]
@@ -15,7 +15,7 @@
     ;; clojure
     [org.clojure/clojure "1.9.0-alpha14"]
     [org.clojure/clojurescript "1.9.293"]
-    [org.clojure/core.async "0.2.385"]
+    ;; [org.clojure/core.async "0.2.385"]
     [org.clojure/test.check "0.9.0" :scope "test"]
     [org.clojure/tools.nrepl "0.2.12" :scope "test"]
 
@@ -25,22 +25,16 @@
     [danielsz/boot-autoprefixer "0.0.8"]
 
     ;; server
-    [hiccup "1.0.5"]
-    #_[org.eclipse.jgit/org.eclipse.jgit.java7 "3.7.0.201502260915-r"
-     :exclusions [com.jcraft/jsch]]
-    #_[com.jcraft/jsch "0.1.52"]
-    [clj-jgit "0.8.9"]
-    [me.raynes/conch "0.8.0"]
-
+    [hiccup "1.0.5" :scope "test"]
+    [clj-jgit "0.8.9" :scope "test"]
+    [me.raynes/conch "0.8.0" :scope "test"]
 
     ;; client
     [org.omcljs/om "1.0.0-alpha47"]
-    [sablono "0.7.3"]
     [binaryage/devtools "0.8.1" :scope "test"]])
 
 
 (require
-  '[clojure.pprint :refer [pprint]]
   '[adzerk.boot-cljs      :refer [cljs]]
   '[adzerk.boot-cljs-repl :refer [cljs-repl start-repl]]
   '[adzerk.boot-reload    :refer [reload]]
@@ -57,11 +51,25 @@
   (comp
     (serve)
     (watch)
-   (speak)
-   (reload)
-   (cljs-repl)
-   (cljs :source-map true :optimizations :none)
-   (garden :styles-var 'dmeterfields.styles/base
-     :output-to "css/styles.css")
-   (autoprefixer :files ["styles.css"])))
+    (speak)
+    (reload)
+    (cljs-repl)
+    (cljs
+      :source-map true
+      :optimizations :none
+      :compiler-options {:preloads '[devtools.preload]})
+    (garden
+      :styles-var 'dmeterfields.styles/base
+      :output-to "css/styles.css")
+    (autoprefixer :files ["styles.css"])))
 
+(deftask prod
+  "Prod"
+  []
+  (comp
+    (cljs :optimizations :advanced)
+    (garden
+      :styles-var 'dmeterfields.styles/base
+      :output-to "css/styles.css")
+    (autoprefixer :files ["styles.css"])
+    (target)))
