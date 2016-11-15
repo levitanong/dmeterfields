@@ -27,7 +27,7 @@
         (git/git-merge repo latest-commit)
         (util/info "Merged. Pushing")
         (with-programs [git]
-          (git "push -u origin master"))
+          (git "push"))
         #_(-> repo
           .push
           (.setRemote "origin")
