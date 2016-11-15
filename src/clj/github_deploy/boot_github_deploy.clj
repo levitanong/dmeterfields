@@ -2,6 +2,7 @@
   {:boot/export-tasks true}
   (:require
    [boot.core :as boot :refer [deftask]]
+   [boot.task.built-in :refer [sift]]
    [boot.util :as util]
    [clj-jgit.porcelain :as git]
    [clj-jgit.querying :as git-query]
@@ -30,11 +31,12 @@
         (if-not (clean? repo)
           (util/fail (str "Merge failed: " (git/git-status repo) "\n"))
           (do
-            (util/info "Merged. Pushing.\n")
-            (with-programs [git]
+            (util/info "Merged. Moving contents of /target to /\n")
+            (sift :move {"\/target\/*" "\/"})
+            #_(with-programs [git]
               (git "push")
               (util/info "Pushed.\n"))
-            (if-not (clean? repo)
+            #_(if-not (clean? repo)
               (util/fail (str "Something went wrong. Repo is not clean.\n"
                            (git/git-status repo)))
               (do
