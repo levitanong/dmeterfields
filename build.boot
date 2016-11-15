@@ -30,6 +30,8 @@
      :exclusions [com.jcraft/jsch]]
     #_[com.jcraft/jsch "0.1.52"]
     [clj-jgit "0.8.9"]
+    [me.raynes/conch "0.8.0"]
+
 
     ;; client
     [org.omcljs/om "1.0.0-alpha47"]
@@ -40,21 +42,21 @@
 (require
   '[clojure.pprint :refer [pprint]]
   '[adzerk.boot-cljs      :refer [cljs]]
- '[adzerk.boot-cljs-repl :refer [cljs-repl start-repl]]
- '[adzerk.boot-reload    :refer [reload]]
- '[org.martinklepsch.boot-garden :refer [garden]]
- '[pandeiro.boot-http    :refer [serve]]
- '[danielsz.autoprefixer :refer [autoprefixer]]
- '[om-prerender.boot-om-prerender :refer [om-prerender]]
- '[om-style.boot-om-style :refer [om-style]]
- '[github-deploy.boot-github-deploy :refer [github-deploy]])
+  '[adzerk.boot-cljs-repl :refer [cljs-repl start-repl]]
+  '[adzerk.boot-reload    :refer [reload]]
+  '[org.martinklepsch.boot-garden :refer [garden]]
+  '[pandeiro.boot-http    :refer [serve]]
+  '[danielsz.autoprefixer :refer [autoprefixer]]
+  '[om-prerender.boot-om-prerender :refer [om-prerender]]
+  '[om-style.boot-om-style :refer [om-style]]
+  '[github-deploy.boot-github-deploy :refer [github-deploy]])
 
 (deftask dev
   "Run app"
   []
   (comp
-   (serve)
-   (watch)
+    (serve)
+    (watch)
    (speak)
    (reload)
    (cljs-repl)
