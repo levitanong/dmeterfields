@@ -19,7 +19,7 @@
 
 (deftask github-deploy
   [i ignore-regex MATCH #{regex} "The set of regexes to ignore"
-   v verbose? BOOL bool "Verbose"]
+   v verbose? bool "Verbose"]
   (let [repo (git/load-repo ".")
         working-branch (git/git-branch-current repo)
         latest-commit (first (git/git-log repo))
