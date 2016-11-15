@@ -11,7 +11,7 @@
   [x]
   (let [ctor (if (om/component? x)
                (om/react-type x) x)
-        css (if-let [style (:style (meta ctor))]
+        css (when-let [style (:style (meta ctor))]
               (style ctor))]
     (with-meta
       css

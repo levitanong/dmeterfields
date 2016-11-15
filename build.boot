@@ -44,6 +44,7 @@
   '[danielsz.autoprefixer :refer [autoprefixer]]
   ;; '[om.next :as om]
   '[dmeterfields.core]
+  '[dmeterfields.styles]
   '[om-prerender.boot-om-prerender :refer [om-prerender]]
   '[om-style.boot-om-style :refer [om-style]]
   '[github-deploy.boot-github-deploy :refer [github-deploy]])
@@ -59,12 +60,17 @@
     (om-prerender
       :reconciler 'dmeterfields.core/reconciler
       :root 'dmeterfields.core/Root)
+    (om-style
+      :root 'dmeterfields.core/Root
+      :base-style 'dmeterfields.styles/base
+      :output-to "css/styles.css"
+      :pretty-print true)
     (cljs-repl)
     (cljs
       :source-map true
       :optimizations :none
       :compiler-options {:preloads '[devtools.preload]})
-    (garden
+    #_(garden
       :styles-var 'dmeterfields.styles/base
       :output-to "css/styles.css")
     (autoprefixer :files ["styles.css"])))
@@ -77,7 +83,12 @@
       :reconciler 'dmeterfields.core/reconciler
       :root 'dmeterfields.core/Root)
     (cljs :optimizations :advanced)
-    (garden
+    (om-style
+      :root 'dmeterfields.core/Root
+      :base-style 'dmeterfields.styles/base
+      :output-to "css/styles.css"
+      :pretty-print true)
+    #_(garden
       :styles-var 'dmeterfields.styles/base
       :output-to "css/styles.css")
     (autoprefixer :files ["styles.css"])

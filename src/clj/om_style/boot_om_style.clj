@@ -27,14 +27,15 @@
 (deftask om-style
   "Generate a stylesheet based on the
 colocated styles of a root om.next class"
-  [r root-class SYM sym "The root om.next class whose styles are to be generated"
+  [r root SYM sym "The root om.next class whose styles are to be generated"
+   b base-style SYM sym "A base style to be included alongside the styles defined by root-class"
    o output-to  PATH str "The output css file path relative to docroot."
    p pretty-print bool "Pretty print compiled CSS"]
   (let [tmp (boot/tmp-dir!)
         output-path (or output-to "main.css")
         out-file (io/file tmp output-path)
         src-paths (vec (boot/get-env :source-paths))
-        ns-sym (symbol (namespace root-class))
+        ns-sym (symbol (namespace root))
         ns-pod (ns-tracker-pod)]
     (pod/with-eval-in ns-pod
       (require 'ns-tracker.core)
@@ -47,14 +48,18 @@ colocated styles of a root om.next class"
           (require n :reload))
         (util/info "Compiling %s...\n" (.getName out-file))
         (io/make-parents out-file)
-        (let [out-style (->> root-class
-                          resolve
-                          var-get
-                          os/get-style)]
+        (let [out-style (when (resolve root)
+                          (->> root
+                            resolve
+                            var-get
+                            os/get-style))
+              base-style (when (resolve base-style)
+                           (-> base-style resolve var-get))]
           (pod/with-eval-in garden-pod
             (garden.core/css
               {:pretty-print? ~pretty-print
                :output-to ~(.getPath out-file)}
+              '~base-style
               '~out-style))))
       (-> fileset
         (boot/add-resource tmp)
