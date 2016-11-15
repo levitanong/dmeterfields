@@ -34,7 +34,7 @@
             (util/fail (str "Merge failed: " (git/git-status repo) "\n"))
             (do
               (util/info "Merged. Moving contents of /target to /\n")
-              (sift :move {#"/target/index.html" "/index.html"})
+              (sift :move {#"\/target\/index.html" "\/index.html"})
               #_(with-programs [git]
                   (git "push")
                   (util/info "Pushed.\n"))
