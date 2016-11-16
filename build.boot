@@ -42,7 +42,6 @@
   '[org.martinklepsch.boot-garden :refer [garden]]
   '[pandeiro.boot-http    :refer [serve]]
   '[danielsz.autoprefixer :refer [autoprefixer]]
-  ;; '[om.next :as om]
   '[dmeterfields.core]
   '[dmeterfields.styles]
   '[om-prerender.boot-om-prerender :refer [om-prerender]]
