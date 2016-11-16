@@ -1,15 +1,11 @@
 (ns om-style.boot-om-style
   {:boot/export-tasks true}
   (:require
-   [om-style.core :as os]
    [boot.core :as boot :refer [deftask]]
    [boot.pod :as pod]
    [boot.util :as util]
    [clojure.java.io :as io]
-   [clojure.spec :as s]
-   ))
-
-(def processed (atom #{}))
+   [om-style.core :as os]))
 
 (defn add-dep [env dep]
   (update-in env [:dependencies] (fnil conj []) dep))
@@ -64,4 +60,3 @@ colocated styles of a root om.next class"
       (-> fileset
         (boot/add-resource tmp)
         boot/commit!))))
-
