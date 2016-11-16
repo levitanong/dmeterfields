@@ -70,9 +70,6 @@
       :source-map true
       :optimizations :none
       :compiler-options {:preloads '[devtools.preload]})
-    #_(garden
-      :styles-var 'dmeterfields.styles/base
-      :output-to "css/styles.css")
     (autoprefixer :files ["styles.css"])))
 
 (deftask prod
@@ -88,9 +85,6 @@
       :base-style 'dmeterfields.styles/base
       :output-to "css/styles.css"
       :pretty-print true)
-    #_(garden
-      :styles-var 'dmeterfields.styles/base
-      :output-to "css/styles.css")
     (autoprefixer :files ["styles.css"])
     (target)))
 
