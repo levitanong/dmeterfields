@@ -42,7 +42,6 @@
   '[org.martinklepsch.boot-garden :refer [garden]]
   '[pandeiro.boot-http    :refer [serve]]
   '[danielsz.autoprefixer :refer [autoprefixer]]
-  ;; '[om.next :as om]
   '[dmeterfields.core]
   '[dmeterfields.styles]
   '[om-prerender.boot-om-prerender :refer [om-prerender]]
@@ -70,9 +69,6 @@
       :source-map true
       :optimizations :none
       :compiler-options {:preloads '[devtools.preload]})
-    #_(garden
-      :styles-var 'dmeterfields.styles/base
-      :output-to "css/styles.css")
     (autoprefixer :files ["styles.css"])))
 
 (deftask prod
@@ -88,9 +84,6 @@
       :base-style 'dmeterfields.styles/base
       :output-to "css/styles.css"
       :pretty-print true)
-    #_(garden
-      :styles-var 'dmeterfields.styles/base
-      :output-to "css/styles.css")
     (autoprefixer :files ["styles.css"])
     (target)))
 
