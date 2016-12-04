@@ -45,10 +45,22 @@
 
 (def reset
   (list
-    [:body {:margin 0}]))
+    [:body {:margin 0}]
+    [:ul {:margin 0
+          :padding 0
+          :list-style 'none}]))
 
 (def components
   (list
+    [:.icon-lrg {:display "block"
+                 :width (px 128)
+                 :height (px 128)}]
+    [:.icon-fill {:fill (:dark theme/color)
+                  :stroke 'none}]
+    [:.icon-stroke {:stroke (:dark theme/color)
+                    :fill 'transparent
+                    :stroke-linecap 'round
+                    :stroke-linejoin 'round}]
     [:.dropdown {:position 'absolute
                  :z-index 10
                  :width (px 256)}]

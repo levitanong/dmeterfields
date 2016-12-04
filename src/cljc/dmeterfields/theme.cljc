@@ -2,4 +2,4 @@
 
 (def color
   {:accent "tomato"
-   :dark "navy"})
+   :dark "#270815"})

@@ -60,7 +60,13 @@
          (at-media {:max-width (px 767)}
            [:#hero {:height (px 520)}
             [:.hero-text
-             [:h2 {:font-size (px 36)}]]]))))
+             [:h2 {:font-size (px 36)}]]]
+           [:.details {:display 'block}])
+         (at-media {:min-width (px 768)}
+           [:.details {:display 'flex
+                       :flex-direction 'row}
+            [:li {:flex 1}
+             [:&+li {:margin-left (px 16)}]]]))))
   Object
   (render [this]
     (dom/div nil
@@ -81,13 +87,23 @@
             "Situated in San Simon, Pampanga, the D'Meter Fields Farm is dedicated to the breeding and fattening of cattle within the confines of a clean and bovine-friendly environment.")
           (dom/ul #js {:className "details"}
             (dom/li nil
-              (dom/svg nil
-                (dom/create-element "use" #js {:xlinkHref "icons.svg#icon-australia"}))))))
+              (dom/svg #js {:className "icon-lrg icon-stroke"}
+                (dom/create-element "use" #js {:xlinkHref "icons.svg#australia"}))
+              (dom/p #js {:className "copy"}
+                "The farm has a total land area of 30 hectares, and is home to 5,800 Brahmans all imported live from Australia."))
+            (dom/li nil
+              (dom/svg #js {:className "icon-lrg icon-stroke"}
+                (dom/create-element "use" #js {:xlinkHref "icons.svg#barn"}))
+              (dom/p #js {:className "copy"}
+                "Strategically located near ample and steady sources of forages and concentrate, we're confident we've chosen the right home for our herd. "))
+            (dom/li nil
+              (dom/svg #js {:className "icon-lrg icon-stroke"}
+                (dom/create-element "use" #js {:xlinkHref "icons.svg#stethoscope"}))
+              (dom/p #js {:className "copy"}
+                "Our in-house veterinarian makes sure every animal on our farm is well taken care of, and as healthy as can be.")))))
       (dom/footer nil
         (dom/p nil
-          "Australian icon by "
-          (dom/a #js {:href "https://thenounproject.com/pronoun/"}
-            "anbileru adaleru"))))))
+          "Australia by Hea Poh Lin from the Noun Project")))))
 
 (def reconciler
   (om/reconciler {:state app-state}))
