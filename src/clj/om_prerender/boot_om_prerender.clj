@@ -18,7 +18,6 @@
      [:meta {:name "viewport"
              :content "width=device-width, initial-scale=1"}]
      [:title "D'Meter Fields"]
-     (hiccup/include-css "icons/style.css")
      (hiccup/include-css "css/styles.css")
      (hiccup/include-css "https://fonts.googleapis.com/css?family=Roboto:300,400,600")]
     [:body

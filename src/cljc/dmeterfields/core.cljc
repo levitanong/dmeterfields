@@ -11,12 +11,59 @@
 
 (def app-state (atom {}))
 
+(defui Detail
+  #?(:clj static)
+  #?(:clj os/Style)
+  #?(:clj
+     (style [_]
+       (list
+         (at-media {:min-width (px 768)}
+           [:.detail {:flex 1}
+            [:&+.detail {:margin-left (px 16)}]]))))
+  Object
+  (render [this]
+    (let [{:keys [title svg-id content]} (om/props this)]
+      (dom/li #js {:className "detail"}
+        (dom/svg #js {:className "icon-lrg icon-stroke"}
+          (dom/create-element "use" #js {:xlinkHref svg-id}))
+        (dom/p #js {:className "copy"}
+          content)))))
+
+(def detail-view (om/factory Detail
+                   {:keyfn :title}))
+
+(defui Details
+  #?(:clj static)
+  #?(:clj os/Style)
+  #?(:clj
+     (style [_]
+       (list
+         (os/get-style Detail)
+         (at-media {:min-width (px 768)}
+           [:.details {:display 'flex
+                       :flex-direction 'row}])
+         (at-media {:max-width (px 767)}
+           [:.details {:display 'block}]))))
+  Object
+  (render [this]
+    (let [{:keys [details title content]} (om/props this)]
+      (dom/section nil
+        (dom/div #js {:className "container"}
+          (dom/h2 nil title)
+          (dom/p nil content)
+          (dom/ul #js {:className "details"}
+            (mapv detail-view details)))))))
+
+(def details-view (om/factory Details
+                    {:keyfn :title}))
+
 (defui Root
   #?(:clj static)
   #?(:clj os/Style)
   #?(:clj
      (style [this]
        (list
+         (os/get-style Details)
          [:body {:font-family "Roboto"}]
          [:.toolbar {:text-align 'left
                      :padding-left (px 16)
@@ -60,13 +107,7 @@
          (at-media {:max-width (px 767)}
            [:#hero {:height (px 520)}
             [:.hero-text
-             [:h2 {:font-size (px 36)}]]]
-           [:.details {:display 'block}])
-         (at-media {:min-width (px 768)}
-           [:.details {:display 'flex
-                       :flex-direction 'row}
-            [:li {:flex 1}
-             [:&+li {:margin-left (px 16)}]]]))))
+             [:h2 {:font-size (px 36)}]]]))))
   Object
   (render [this]
     (dom/div nil
@@ -79,12 +120,24 @@
             "High quality meat from the farm all the way down to your business.")
           (dom/p nil
             "D'Meter Fields is dedicated to bringing your business the highest quality meat by tightly integrating advanced farm and feed techniques with the processing, storage, and delivery facilities of its sister company, SSMPC.")))
-      (dom/section nil
+      (details-view {:title "The Farm"
+                     :content "Situated in San Simon, Pampanga, the D'Meter Fields Farm is dedicated to the breeding and fattening of cattle within the confines of a clean and bovine-friendly environment."
+                     :details [{:title "Australian Cattle"
+                                :content "The farm has a total land area of 30 hectares, and is home to 5,800 Brahmans all imported live from Australia."
+                                :svg-id "icons.svg#australia"}
+                               {:title "Strategic Location"
+                                :content "Strategically located near ample and steady sources of forages and concentrate, we're confident we've chosen the right home for our herd. "
+                                :svg-id "icons.svg#barn"}
+                               {:title "Healthcare"
+                                :content "Our in-house veterinarian makes sure every animal on our farm is well taken care of, and as healthy as can be."
+                                :svg-id "icons.svg#stethoscope"}]})
+      #_(dom/section nil
         (dom/div #js {:className "container"}
           (dom/h2 nil
             "The Farm")
           (dom/p nil
             "Situated in San Simon, Pampanga, the D'Meter Fields Farm is dedicated to the breeding and fattening of cattle within the confines of a clean and bovine-friendly environment.")
+
           (dom/ul #js {:className "details"}
             (dom/li nil
               (dom/svg #js {:className "icon-lrg icon-stroke"}
