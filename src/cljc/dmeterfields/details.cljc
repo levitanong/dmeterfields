@@ -48,6 +48,8 @@
      (style [_]
        (list
          (os/get-style Detail)
+         #_[:.details {:padding-bottom (px 16)
+                     :padding-top (px 16)}]
          (at-media {:min-width (px 768)}
            [:.details {:display 'flex
                        :flex-direction 'row}])

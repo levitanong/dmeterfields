@@ -1,5 +1,6 @@
 (ns dmeterfields.core
   (:require
+   [dmeterfields.data :as data]
    [dmeterfields.details :as details]
    [dmeterfields.theme :as theme]
    [om.next :as om :refer [defui]]
@@ -75,18 +76,17 @@
             "High quality meat from the farm all the way down to your business.")
           (dom/p nil
             "D'Meter Fields is dedicated to bringing your business the highest quality meat by tightly integrating advanced farm and feed techniques with the processing, storage, and delivery facilities of its sister company, SSMPC.")))
-      (details/details-view
-        {:title "The Farm"
-         :content "Situated in San Simon, Pampanga, the D'Meter Fields Farm is dedicated to the breeding and fattening of cattle within the confines of a clean and bovine-friendly environment."
-         :details [{:title "Australian Cattle"
-                    :content "The farm has a total land area of 30 hectares, and is home to 5,800 Brahmans all imported live from Australia."
-                    :svg-id "icons.svg#australia"}
-                   {:title "Strategic Location"
-                    :content "Strategically located near ample and steady sources of forages and concentrate, we're confident we've chosen the right home for our herd. "
-                    :svg-id "icons.svg#barn"}
-                   {:title "Healthcare"
-                    :content "Our in-house veterinarian makes sure every animal on our farm is well taken care of, and as healthy as can be."
-                    :svg-id "icons.svg#stethoscope"}]})
+      (details/details-view data/farm)
+      (dom/div #js {:style #js {:background-color "#92b7b3"}}
+        (dom/section nil
+          (dom/div #js {:className "container"
+                        :style #js {:font-style "italic"}}
+            (dom/h2 nil
+              "Unparalleled integration")
+            (dom/p nil
+              "Together with our sister company SN Smn Meat Products Corporation (SSMPC), we make sure our high quality meat from the farm stays high quality all the way to your business. Here's how we do it.")))
+        (mapv details/details-view
+          data/integration))
       (dom/footer nil
         (dom/div #js {:className "container"}
           (dom/p nil

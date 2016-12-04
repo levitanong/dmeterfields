@@ -25,6 +25,8 @@
     [:.toolbar.pad :.toolbar>.pad
      {:padding [[0 (px 12)]]}]
     [:.relative {:position 'relative}]
+    [:section {:padding-top (px 24)
+               :padding-bottom (px 24)}]
     [:.container {:max-width (px 940)
                   :width (percent 100)
                   :margin-left 'auto
