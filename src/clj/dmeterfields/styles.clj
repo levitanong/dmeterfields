@@ -75,14 +75,14 @@
      [:a {:color 'white
           :text-decoration 'none}]]
     [:.toolbar-lined {:border-bottom [[(px 1) 'solid (rgba 0 0 0 0.1)]]}]
-    [:.toolbar-main {:background-color (:accent color)
+    [:.toolbar-main {:background-color (:accent theme/color)
                      :color 'white
                      :border-bottom 'none}]))
 
 (def buttons
   (list
     [:.button {:background-color 'white
-               :color (:accent color)
+               :color (:accent theme/color)
                :outline 'none
                :border-width (px 0)
                :border-radius (px 3)
@@ -97,16 +97,16 @@
      [:&.transparent {:background-color 'transparent}
       [:&:hover {:background-color (rgba 0 0 0 0.05)}]
       [:&.active {:background-color (rgba 0 0 0 0.1)}]]
-     [:&.outlined {:border [[(px 1) 'solid (:dark color)]]
-                   :color (:dark color)}
+     [:&.outlined {:border [[(px 1) 'solid (:dark theme/color)]]
+                   :color (:dark theme/color)}
       [:&.inverted {:border-color 'white
                     :color 'white}]]
-     [:&.underlined {:box-shadow [[0 (px 2) 0 (:dark color)]]
+     [:&.underlined {:box-shadow [[0 (px 2) 0 (:dark theme/color)]]
                      :border-radius 0
                      :background-color 'transparent}]
-     [:&.accented {:background-color (:accent color)
+     [:&.accented {:background-color (:accent theme/color)
                    :color 'white}]
-     [:&.darkened {:background-color (:dark color)
+     [:&.darkened {:background-color (:dark theme/color)
                    :color 'white}]
      [:.icon-dropdown {:margin-right (px (- 6))}]]
     [:.button-group

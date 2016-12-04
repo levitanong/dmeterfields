@@ -78,7 +78,16 @@
           (dom/h2 nil
             "The Farm")
           (dom/p nil
-            "Situated in San Simon, Pampanga, the D'Meter Fields Farm is dedicated to the breeding and fattening of cattle within the confines of a clean and bovine-friendly environment."))))))
+            "Situated in San Simon, Pampanga, the D'Meter Fields Farm is dedicated to the breeding and fattening of cattle within the confines of a clean and bovine-friendly environment.")
+          (dom/ul #js {:className "details"}
+            (dom/li nil
+              (dom/svg nil
+                (dom/create-element "use" #js {:xlinkHref "icons.svg#icon-australia"}))))))
+      (dom/footer nil
+        (dom/p nil
+          "Australian icon by "
+          (dom/a #js {:href "https://thenounproject.com/pronoun/"}
+            "anbileru adaleru"))))))
 
 (def reconciler
   (om/reconciler {:state app-state}))
