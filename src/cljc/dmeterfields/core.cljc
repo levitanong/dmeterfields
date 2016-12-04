@@ -4,8 +4,9 @@
    [om.next :as om :refer [defui]]
    [om.dom :as dom]
    #?@(:cljs [[goog.dom :as gdom]]
-       :clj [[garden.units :refer [px percent]]
-             [garden.color :refer [rgba]]
+       :clj [[garden.color :refer [rgba]]
+             [garden.stylesheet :refer [at-media]]
+             [garden.units :refer [px percent]]
              [om-style.core :as os]])))
 
 (def app-state (atom {}))
@@ -31,8 +32,10 @@
                      :margin 0}]
          [:#hero {:height (px 640)
                   :background-color 'black
-                  :color 'white
-                  :position 'relative}
+                  :color (rgba 255 255 255 0.8)
+                  :position 'relative
+                  :boz-sizing 'border-box
+                  :padding (px 24)}
           [:&:after {:content "\"\""
                      :background-image "url(../steak.jpg)"
                      :background-size 'cover
@@ -53,8 +56,11 @@
            [:h2 {:font-size (px 48)
                  :margin-top 0}]
            [:p {:margin-bottom 0
-                :font-size (px 18)
-                :line-height 1.5}]]])))
+                :line-height 1.5}]]]
+         (at-media {:max-width (px 767)}
+           [:#hero {:height (px 520)}
+            [:.hero-text
+             [:h2 {:font-size (px 36)}]]]))))
   Object
   (render [this]
     (dom/div nil
@@ -66,8 +72,13 @@
           (dom/h2 nil
             "High quality meat from the farm all the way down to your business.")
           (dom/p nil
-            "D'Meter Fields Corporation is dedicated to bringing your business the highest quality meat by tightly integrating farm and feed services with the processing, storage, and delivery facilities of its sister company, Sn Smn Meat Processing Corporation. ")))
-      (dom/div nil "testing"))))
+            "D'Meter Fields is dedicated to bringing your business the highest quality meat by tightly integrating advanced farm and feed techniques with the processing, storage, and delivery facilities of its sister company, SSMPC.")))
+      (dom/section nil
+        (dom/div #js {:className "container"}
+          (dom/h2 nil
+            "The Farm")
+          (dom/p nil
+            "Situated in San Simon, Pampanga, the D'Meter Fields Farm is dedicated to the breeding and fattening of cattle within the confines of a clean and bovine-friendly environment."))))))
 
 (def reconciler
   (om/reconciler {:state app-state}))
