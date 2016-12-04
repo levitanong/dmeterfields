@@ -29,7 +29,12 @@
                   :width (percent 100)
                   :margin-left 'auto
                   :margin-right 'auto
-                  :box-sizing 'border-box}]))
+                  :box-sizing 'border-box}]
+    (at-media {:max-width (px 767)}
+      [:.container {:padding (px 16)}])
+    (at-media {:min-width (px 768)}
+      [:.container {:padding-left (px 16)
+                    :padding-right (px 16)}])))
 
 (def typography
   (list

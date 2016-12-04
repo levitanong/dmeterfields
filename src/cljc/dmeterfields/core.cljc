@@ -19,7 +19,18 @@
        (list
          (at-media {:min-width (px 768)}
            [:.detail {:flex 1}
-            [:&+.detail {:margin-left (px 16)}]]))))
+            [:&+.detail {:margin-left (px 16)}]])
+         (at-media {:max-width (px 767)}
+           [:.detail {:display 'flex
+                      :flex-direction 'row
+                      :align-items 'flex-start
+                      :margin-top (px 16)}]
+           [:.icon-lrg {:height (px 64)
+                        :width (px 64)}]
+           [:.icon-stroke {:stroke-width (px 2)}]
+           [:.copy {:margin-left (px 16)
+                    :flex 1
+                    :margin-top 0}]))))
   Object
   (render [this]
     (let [{:keys [title svg-id content]} (om/props this)]
@@ -131,32 +142,10 @@
                                {:title "Healthcare"
                                 :content "Our in-house veterinarian makes sure every animal on our farm is well taken care of, and as healthy as can be."
                                 :svg-id "icons.svg#stethoscope"}]})
-      #_(dom/section nil
-        (dom/div #js {:className "container"}
-          (dom/h2 nil
-            "The Farm")
-          (dom/p nil
-            "Situated in San Simon, Pampanga, the D'Meter Fields Farm is dedicated to the breeding and fattening of cattle within the confines of a clean and bovine-friendly environment.")
-
-          (dom/ul #js {:className "details"}
-            (dom/li nil
-              (dom/svg #js {:className "icon-lrg icon-stroke"}
-                (dom/create-element "use" #js {:xlinkHref "icons.svg#australia"}))
-              (dom/p #js {:className "copy"}
-                "The farm has a total land area of 30 hectares, and is home to 5,800 Brahmans all imported live from Australia."))
-            (dom/li nil
-              (dom/svg #js {:className "icon-lrg icon-stroke"}
-                (dom/create-element "use" #js {:xlinkHref "icons.svg#barn"}))
-              (dom/p #js {:className "copy"}
-                "Strategically located near ample and steady sources of forages and concentrate, we're confident we've chosen the right home for our herd. "))
-            (dom/li nil
-              (dom/svg #js {:className "icon-lrg icon-stroke"}
-                (dom/create-element "use" #js {:xlinkHref "icons.svg#stethoscope"}))
-              (dom/p #js {:className "copy"}
-                "Our in-house veterinarian makes sure every animal on our farm is well taken care of, and as healthy as can be.")))))
       (dom/footer nil
-        (dom/p nil
-          "Australia by Hea Poh Lin from the Noun Project")))))
+        (dom/div #js {:className "container"}
+          (dom/p nil
+            "Australia by Hea Poh Lin from the Noun Project"))))))
 
 (def reconciler
   (om/reconciler {:state app-state}))
