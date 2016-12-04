@@ -54,11 +54,13 @@
   (list
     [:.icon-lrg {:display "block"
                  :width (px 128)
-                 :height (px 128)}]
+                 :height (px 128)
+                 }]
     [:.icon-fill {:fill (:dark theme/color)
                   :stroke 'none}]
     [:.icon-stroke {:stroke (:dark theme/color)
                     :fill 'transparent
+                    :stroke-width (px 4)
                     :stroke-linecap 'round
                     :stroke-linejoin 'round}]
     [:.dropdown {:position 'absolute
