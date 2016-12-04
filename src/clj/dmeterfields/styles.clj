@@ -1,11 +1,8 @@
 (ns dmeterfields.styles
   (:require
+   [dmeterfields.theme :as theme]
    [garden.color :refer [rgba]]
    [garden.units :refer [px s percent]]))
-
-(def color
-  {:accent "tomato"
-   :dark "navy"})
 
 (def layout
   (list
@@ -37,8 +34,8 @@
   (list
     [:body {:font-family 'Roboto
             :font-size (px 16)
-            :color (:dark color)}]
-    [:input {:color (:dark color)}]
+            :color (:dark theme/color)}]
+    [:input {:color (:dark theme/color)}]
     [:.semi-transparent {:opacity 0.4}]
     [:.thin {:font-weight 300}]
     ))
