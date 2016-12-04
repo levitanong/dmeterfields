@@ -20,7 +20,7 @@
      [:title "D'Meter Fields"]
      (hiccup/include-css "icons/style.css")
      (hiccup/include-css "css/styles.css")
-     (hiccup/include-css "https://fonts.googleapis.com/css?family=Roboto:300,400,700")]
+     (hiccup/include-css "https://fonts.googleapis.com/css?family=Roboto:300,400,600")]
     [:body
      [:div#app html-string]
      (hiccup/include-js "/main.js")]))

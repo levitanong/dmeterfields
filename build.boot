@@ -29,11 +29,13 @@
     [clj-jgit "0.8.9" :scope "test"]
     [me.raynes/conch "0.8.0" :scope "test"]
     [me.raynes/fs "1.4.6" :scope "test"]
+    [om-style "0.0.1"]
 
     ;; client
     [org.omcljs/om "1.0.0-alpha47"]
     [binaryage/devtools "0.8.1" :scope "test"]])
 
+(load-data-readers!)
 
 (require
   '[adzerk.boot-cljs      :refer [cljs]]
