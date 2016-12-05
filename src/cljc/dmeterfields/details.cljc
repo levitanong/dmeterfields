@@ -21,7 +21,7 @@
                        :font-weight 300
                        :line-height (px (- 128 8))
                        :font-size (px 72)
-                       :font-family "Abel"
+                       :font-family "\"Abel\", \"Arial\""
                        :text-align 'center
                        :border [[(px 4) 'solid (:dark theme/color)]]}]
          (at-media {:min-width (px 768)}

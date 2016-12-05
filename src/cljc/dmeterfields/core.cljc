@@ -30,7 +30,7 @@
                      :z-index 2
                      :top 0 :left 0 :right 0}]
          [:h1#brand {:font-size (px 21)
-                     :font-family "Pacifico"
+                     :font-family "\"Pacifico\", \"Georgia\", \"Arial\""
                      :font-weight 'normal
                      :line-height (px 64)
                      :color (:light theme/color)
