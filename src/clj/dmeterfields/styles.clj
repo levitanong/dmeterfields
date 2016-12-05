@@ -1,11 +1,9 @@
 (ns dmeterfields.styles
   (:require
+   [dmeterfields.theme :as theme]
    [garden.color :refer [rgba]]
+   [garden.stylesheet :refer [at-media]]
    [garden.units :refer [px s percent]]))
-
-(def color
-  {:accent "tomato"
-   :dark "navy"})
 
 (def layout
   (list
@@ -27,28 +25,51 @@
     [:.toolbar.pad :.toolbar>.pad
      {:padding [[0 (px 12)]]}]
     [:.relative {:position 'relative}]
+    [:section {:padding-top (px 24)
+               :padding-bottom (px 24)}]
     [:.container {:max-width (px 940)
                   :width (percent 100)
                   :margin-left 'auto
                   :margin-right 'auto
-                  :box-sizing 'border-box}]))
+                  :box-sizing 'border-box}]
+    (at-media {:max-width (px 767)}
+      [:.container {:padding (px 16)}])
+    (at-media {:min-width (px 768)}
+      [:.container {:padding-left (px 16)
+                    :padding-right (px 16)}])))
 
 (def typography
   (list
     [:body {:font-family 'Roboto
-            :font-size (px 16)
-            :color (:dark color)}]
-    [:input {:color (:dark color)}]
-    [:.semi-transparent {:opacity 0.4}]
+            :font-size (px 18)
+            :color (:dark theme/color)}]
+    [:input {:color (:dark theme/color)}]
+    [:.faint {:opacity 0.4}]
     [:.thin {:font-weight 300}]
+    (at-media {:max-width (px 767)}
+      [:body {:font-size (px 14)}])
     ))
 
 (def reset
   (list
-    [:body {:margin 0}]))
+    [:body {:margin 0}]
+    [:ul {:margin 0
+          :padding 0
+          :list-style 'none}]))
 
 (def components
   (list
+    [:.icon-lrg {:display "block"
+                 :width (px 128)
+                 :height (px 128)
+                 }]
+    [:.icon-fill {:fill (:dark theme/color)
+                  :stroke 'none}]
+    [:.icon-stroke {:stroke (:dark theme/color)
+                    :fill 'transparent
+                    :stroke-width (px 4)
+                    :stroke-linecap 'round
+                    :stroke-linejoin 'round}]
     [:.dropdown {:position 'absolute
                  :z-index 10
                  :width (px 256)}]
@@ -75,14 +96,14 @@
      [:a {:color 'white
           :text-decoration 'none}]]
     [:.toolbar-lined {:border-bottom [[(px 1) 'solid (rgba 0 0 0 0.1)]]}]
-    [:.toolbar-main {:background-color (:accent color)
+    [:.toolbar-main {:background-color (:accent theme/color)
                      :color 'white
                      :border-bottom 'none}]))
 
 (def buttons
   (list
     [:.button {:background-color 'white
-               :color (:accent color)
+               :color (:accent theme/color)
                :outline 'none
                :border-width (px 0)
                :border-radius (px 3)
@@ -97,16 +118,16 @@
      [:&.transparent {:background-color 'transparent}
       [:&:hover {:background-color (rgba 0 0 0 0.05)}]
       [:&.active {:background-color (rgba 0 0 0 0.1)}]]
-     [:&.outlined {:border [[(px 1) 'solid (:dark color)]]
-                   :color (:dark color)}
+     [:&.outlined {:border [[(px 1) 'solid (:dark theme/color)]]
+                   :color (:dark theme/color)}
       [:&.inverted {:border-color 'white
                     :color 'white}]]
-     [:&.underlined {:box-shadow [[0 (px 2) 0 (:dark color)]]
+     [:&.underlined {:box-shadow [[0 (px 2) 0 (:dark theme/color)]]
                      :border-radius 0
                      :background-color 'transparent}]
-     [:&.accented {:background-color (:accent color)
+     [:&.accented {:background-color (:accent theme/color)
                    :color 'white}]
-     [:&.darkened {:background-color (:dark color)
+     [:&.darkened {:background-color (:dark theme/color)
                    :color 'white}]
      [:.icon-dropdown {:margin-right (px (- 6))}]]
     [:.button-group

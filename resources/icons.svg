@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg">
+<symbol id="australia" viewBox="0 0 34 30">
+  <defs>
+    <mask id="a" x="0" y="0" width="32" height="24">
+      <path vector-effect="non-scaling-stroke" d="M29 8l-2-1-1-4h-1V0h-1l-1 4-1 1-4-2 1-2V0h-5l-1 3h-1l-2-1-1 1-3 5-6 2v3l3 6v3h2l2-2h3v-2h6l1 1 2 1v1h2l1 3h3l1-1h2l2-3 2-4v-3z"/>
+    </mask>
+  </defs>
+  <path vector-effect="non-scaling-stroke" d="M29 8l-2-1-1-4h-1V0h-1l-1 4-1 1-4-2 1-2V0h-5l-1 3h-1l-2-1-1 1-3 5-6 2v3l3 6v3h2l2-2h3v-2h6l1 1 2 1v1h2l1 3h3l1-1h2l2-3 2-4v-3z" mask="url(#a)" transform="translate(1 1)"/>
+  <path vector-effect="non-scaling-stroke" d="M25 26l2 1h1v1l-1 1h-1l-1-1z"/>
+</symbol>
+<symbol id="barn" viewBox="0 0 24 24">
+  <path vector-effect="non-scaling-stroke" d="M.521 23.5H23.5m-10-6h7v6h-7zm-4-.5l7.5-6 7.5 6m-11 .5l7 6m0-6l-7 6m9-8.1v8.1m-11-8.1v8.1m-9.977-17h10.954M1.5 10.5h11"/>
+  <path vector-effect="non-scaling-stroke" d="M12.5 14.6V7a5.5 5.5 0 1 0-11 0v16.5"/>
+</symbol>
+<symbol id="stethoscope" viewBox="0 0 24 24">
+  <circle vector-effect="non-scaling-stroke" cx="20.5" cy="10.5" r="2"/>
+  <path vector-effect="non-scaling-stroke" d="M4.5 2a2 2 0 0 0-2 2v5c0 2.762 2.238 5 5 5s5-2.238 5-5V4a2 2 0 0 0-2-2m-3 12v7.5a2 2 0 0 0 4 0v-5a2.5 2.5 0 1 1 5 .001V19.5a2 2 0 0 0 4 0v-7"/>
+  <path vector-effect="non-scaling-stroke" d="M6 2c0 1.5-1.5 1.5-1.5 1.5v-3S6 .5 6 2zm3 0C9 .5 10.5.5 10.5.5v3S9 3.5 9 2z"/>
+</symbol>
+<symbol id="chicken" viewBox="0 0 24 24">
+  <path vector-effect="non-scaling-stroke" d="M4.821 22.708c-1.053-1.053-.673-2.795-.673-2.795s-1.76.362-2.847-.725c-2.493-2.493 1.381-6.367 4.076-2.698l2.939-2.939 2.122 2.121L7.5 18.611c3.69 2.673-.185 6.592-2.679 4.097zm6.373-6.28l-3.535-3.536C5.769 11.001 14.095-4.787 21.473 2.59c7.429 7.43-8.628 15.487-10.279 13.838z"/>
+</symbol>
+<symbol id="gauge" viewBox="0 0 24 24">
+  <circle vector-effect="non-scaling-stroke" cx="12" cy="16" r="1.5"/>
+  <path vector-effect="non-scaling-stroke" d="M13.061 14.939l4.95-4.949M2.5 16.5h2m17 0h-2m1.276-4.135l-1.847.765m-3.294-5.907l-.765 1.848M12 6.5v2M8.365 7.223l.765 1.848m-3.847.211l1.412 1.415m-3.471 1.668l1.846.765M12 4.5C5.648 4.5.5 9.649.5 16v4.5h23V16c0-6.351-5.148-11.5-11.5-11.5z"/>
+</symbol>
+<symbol id="snowflake" viewBox="0 0 24 24">
+  <path vector-effect="non-scaling-stroke" d="M11.5.5v23M1.54 6.25l19.919 11.5m-19.92.001L21.459 6.25M9 2.5L11.5 5 14 2.5M2.021 9.415L5.438 8.5l-.917-3.415m0 13.831l.917-3.416-3.417-.914M14 21.501L11.499 19 9 21.501m11.979-6.915l-3.418.915.918 3.415m0-13.831l-.917 3.417 3.417.913M10 7.5h3m-6.148 3.549l1.5-2.599m0 7.1l-1.5-2.598M13 16.501h-3m6.147-3.55l-1.5 2.599m-.001-7.1l1.501 2.6"/>
+</symbol>
+<symbol id="wheat" viewBox="0 0 24 24">
+  <path vector-effect="non-scaling-stroke" d="M5.5.506V23.49m-2-19.5v4C1 6.006.5 3.506.5.99l3 3zm0 7.516v4c-2.5-1.984-3-4.484-3-7l3 3zm0 7.515v4c-2.5-1.984-3-4.484-3-7l3 3zm4-15.031v4c2.5-1.984 3-4.484 3-7l-3 3zm0 7.516v4c2.5-1.984 3-4.484 3-7l-3 3zm0 7.515v4c2.5-1.984 3-4.484 3-7l-3 3zM18.5.506V23.49m-2-19.5v4c-2.5-1.984-3-4.484-3-7l3 3zm0 7.516v4c-2.5-1.984-3-4.484-3-7l3 3zm0 7.515v4c-2.5-1.984-3-4.484-3-7l3 3zm4-15.031v4c2.5-1.984 3-4.484 3-7l-3 3zm0 7.516v4c2.5-1.984 3-4.484 3-7l-3 3zm0 7.515v4c2.5-1.984 3-4.484 3-7l-3 3z"/>
+</symbol>
+<symbol id="truck" viewBox="0 0 24 24">
+  <circle vector-effect="non-scaling-stroke" cx="5" cy="18.5" r="2"/>
+  <circle vector-effect="non-scaling-stroke" cx="19" cy="18.5" r="2"/>
+  <path vector-effect="non-scaling-stroke" d="M3 18.5H.5V13l2-2L5 6.5h4.5v-2h14v14H21m-14 0h10"/>
+  <path vector-effect="non-scaling-stroke" d="M7.5 8.5H6l-1.5 3m5-5v10m-9 0h23"/>
+</symbol>
+<symbol id="thermometer" viewBox="0 0 24 24">
+  <path vector-effect="non-scaling-stroke" d="M8.99 14.624l2.51 1.686 4.006-2.81v-4L11.5 6.705 8.989 8.392m2.517-1.687V.5m-2.215.907l2.23 1.343 2.23-1.356M9.269 4.06l2.252 1.343 2.208-1.357M11.5 16.31l.006 6.19m-.007-2.243l2.23 1.356m-2.23-4.016l2.23 1.357M15.5 9.5l5.936-3.414M19.506 4.5v2.695l2.128 1.363M17.506 5.5v2.846l2.128 1.234m-.128 8.92v-2.709l2.128-1.326M17.506 17.5v-2.853l2.128-1.205M15.5 13.5l5.961 3.409M6.5 16.042V2.5a2 2 0 0 0-4 0v13.542a3.99 3.99 0 0 0-2 3.458 4 4 0 0 0 8 0 3.99 3.99 0 0 0-2-3.458z"/>
+  <circle vector-effect="non-scaling-stroke" cx="4.5" cy="19.5" r="1"/>
+  <path vector-effect="non-scaling-stroke" d="M4.5 18.5v-11"/>
+</symbol>
+<symbol id="mixer" viewBox="0 0 24 24">
+  <path vector-effect="non-scaling-stroke" d="M11.5.5h-4a4 4 0 0 0-4 4v3h11v9a4 4 0 0 1-4 4H2a1.5 1.5 0 0 0 0 3h21.5V2c0-.828-.673-1.5-1.5-1.5H11.5zm2 4v-4m3 4v-4m3 4v-4"/>
+  <path vector-effect="non-scaling-stroke" d="M8.5 10.5v-3m-2 3v-3m0 3h2L11 13s-1 5-3.5 5S4 13 4 13l2.5-2.5zm1 7.5v-7.5"/>
+  <circle vector-effect="non-scaling-stroke" cx="19" cy="18" r="2.5"/>
+</symbol>
+<symbol id="sausage" viewBox="0 0 24 24">
+  <path vector-effect="non-scaling-stroke" d="M17.009 11.238l2.3-2.299m-4.243-4.242l-2.26 2.26m-3.697 7.939L.615 23.391M17.188 6.817l-2.269 2.269m7.066 7.248a4 4 0 1 1-5.657 5.656L2.015 7.678a4 4 0 0 1 5.657-5.657l14.313 14.313zM4 5.5h4m0 4h4m0 4h4m0 4h4"/>
+</symbol>
+<symbol id="refrigerator" viewBox="0 0 24 24">
+  <path vector-effect="non-scaling-stroke" d="M3.5 2.5a2 2 0 0 1 2-2h13a2 2 0 0 1 2 2v18a2 2 0 0 1-2 2h-13a2 2 0 0 1-2-2v-18zm3 21.5v-1.5m11 1.5v-1.5m-14-14h17M6.5 3v3m0 4v6"/>
+</symbol>
+<symbol id="forest" viewBox="0 0 24 24">
+  <path vector-effect="non-scaling-stroke" d="M10.5 17A1.5 1.5 0 0 1 9 18.5H2A1.5 1.5 0 0 1 .5 17L5.5.5l5 16.5zm-5 0a3.5 3.5 0 0 1 3.945-3.472m-7.893.001A3.5 3.5 0 0 1 5.5 17m0-4.5a2.501 2.501 0 0 1 2.876-2.472m-5.764.001A2.502 2.502 0 0 1 5.5 12.5"/>
+  <circle vector-effect="non-scaling-stroke" cx="16.5" cy="10.5" r="6.5"/>
+  <path vector-effect="non-scaling-stroke" d="M16.5 15.5c0-1.571 1.075-3.057 2.5-3.5m-5-1.5a2.5 2.5 0 0 1 2.5 2.5m0 10.5v-15m-11 15v-16"/>
+</symbol>
+<symbol id="quality" viewBox="0 0 24 24">
+  <path vector-effect="non-scaling-stroke" d="M15.5 17v6.5l-4-4-4 4V17m4-11.833L12.666 7.5H15l-1.944 1.44.777 2.664-2.333-1.488-2.334 1.446.778-2.615L8 7.5h2.333z"/>
+  <circle vector-effect="non-scaling-stroke" cx="11.5" cy="8.5" r="8"/>
+  <circle vector-effect="non-scaling-stroke" cx="11.5" cy="8.5" r="5.5"/>
+</symbol>
+</svg>
