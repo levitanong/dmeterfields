@@ -93,3 +93,10 @@
   "deploy"
   []
   (github-deploy))
+
+(deftask prod-deploy
+  "prod deploy"
+  []
+  (comp
+    (prod)
+    (deploy)))
