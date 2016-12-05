@@ -29,13 +29,15 @@
                      :position 'absolute
                      :z-index 2
                      :top 0 :left 0 :right 0}]
-         [:h1#brand {:font-size (px 18)
+         [:h1#brand {:font-size (px 21)
+                     :font-family "Pacifico"
+                     :font-weight 'normal
                      :line-height (px 64)
-                     :color 'white
+                     :color (:light theme/color)
                      :margin 0}]
          [:#hero {:height (px 640)
                   :background-color 'black
-                  :color (rgba 255 255 255 0.8)
+                  :color (:light theme/color)
                   :position 'relative
                   :boz-sizing 'border-box
                   :padding (px 24)}
@@ -60,19 +62,22 @@
                  :margin-top 0}]
            [:p {:margin-bottom 0
                 :line-height 1.5}]]]
-         [:#integration {:background-color "#92b7b3"}
+         [:#integration {:background-color (:bluish theme/color)}
           [:#integration-blurb {:font-style "italic"}]]
          (at-media {:max-width (px 767)}
            [:#hero {:height (px 520)}
             [:.hero-text
-             [:h2 {:font-size (px 36)}]]]))))
+             [:h2 {:font-size (px 36)}]]])
+         [:footer {:background-color "#222"
+                   :padding [[(px 16) 0]]
+                   :color (:light theme/color)}])))
   Object
   (render [this]
     (dom/div nil
       (dom/section #js {:id "hero"}
         (dom/div #js {:className "toolbar"}
           (dom/h1 #js {:id "brand"}
-            "D'meter Fields"))
+            "D‘Meter Fields"))
         (dom/div #js {:className "container hero-text"}
           (dom/h2 nil
             "High quality meat from the farm all the way down to your business.")
@@ -90,8 +95,10 @@
           data/integration))
       (dom/footer nil
         (dom/div #js {:className "container"}
+          (dom/p #js {:className "faint"}
+            "Australia Illustration by Hea Poh Lin from the Noun Project")
           (dom/p nil
-            "Australia by Hea Poh Lin from the Noun Project"))))))
+            "Copyright D'Meter Fields Corporation 2016"))))))
 
 (def reconciler
   (om/reconciler {:state app-state}))

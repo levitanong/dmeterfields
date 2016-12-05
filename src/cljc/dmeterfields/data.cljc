@@ -1,4 +1,6 @@
-(ns dmeterfields.data)
+(ns dmeterfields.data
+  (:require
+   [dmeterfields.theme :as theme]))
 
 (def farm
   {:title "The Farm"
@@ -28,6 +30,8 @@
                :svg-id "icons.svg#wheat"}]}
    {:title "Abattoir and Fabrication"
     :content "If it's a part of the animal, chances are, we can give it to you. Cut any way you like it."
+    :color (:light theme/color)
+    :bg-color (:reddish theme/color)
     :details [{:title "Primals"
                :content "SSMPC's fabrication technicians extract pork, beef, and chicken primal cuts from the carcasses. You can be sure the cuts are subject to stringent quality control."
                :svg-id "icons.svg#quality"}
@@ -39,6 +43,8 @@
                :pull-text "DIY"}]}
    {:title "Cold Facilities"
     :content "Good meat is not enough. We want good meat to stay good. SSMPC's storage and delivery facilities are unique in the Philippine market."
+    :color (:dark-bluish theme/color)
+    :bg-color (:light theme/color)
     :details [{:title "Cold Fabrication"
                :content "Even before meat processing starts, we're already ensuring the lifespan of our meat. All our fabrication and processing happens in sanitary cold (10°C) rooms."
                :svg-id "icons.svg#snowflake"}

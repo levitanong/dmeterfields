@@ -44,7 +44,7 @@
             :font-size (px 18)
             :color (:dark theme/color)}]
     [:input {:color (:dark theme/color)}]
-    [:.semi-transparent {:opacity 0.4}]
+    [:.faint {:opacity 0.4}]
     [:.thin {:font-weight 300}]
     (at-media {:max-width (px 767)}
       [:body {:font-size (px 14)}])

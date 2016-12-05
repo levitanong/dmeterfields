@@ -45,13 +45,15 @@
                     :margin-top 0}]))))
   Object
   (render [this]
-    (let [{:keys [title svg-id content pull-text]} (om/props this)]
+    (let [{:keys [title svg-id content pull-text color]} (om/props this)]
       (dom/li #js {:className "detail"}
         (when pull-text
-          (dom/h1 #js {:className "pull-text"}
+          (dom/h1 #js {:className "pull-text"
+                       :style #js {:borderColor (or color nil)}}
             pull-text))
         (when svg-id
-          (dom/svg #js {:className "icon-lrg icon-stroke"}
+          (dom/svg #js {:className "icon-lrg icon-stroke"
+                        :style #js {:stroke (or color nil)}}
             (dom/create-element "use" #js {:xlinkHref svg-id})))
         (dom/p #js {:className "copy"}
           content)))))
@@ -75,13 +77,20 @@
            [:.details {:display 'block}]))))
   Object
   (render [this]
-    (let [{:keys [details title content]} (om/props this)]
-      (dom/section nil
+    (let [{:keys [details title content
+                  bg-color color]} (om/props this)]
+      (dom/section #js {:className "section"
+                        :style #js {:backgroundColor
+                                    (or bg-color "transparent")
+                                    :color
+                                    (or color "inherit")}}
         (dom/div #js {:className "container"}
           (dom/h2 nil title)
           (dom/p nil content)
           (dom/ul #js {:className "details"}
-            (mapv detail-view details)))))))
+            (mapv (fn [detail]
+                    (detail-view (assoc detail :color color)))
+              details)))))))
 
 (def details-view (om/factory Details
                     {:keyfn :title}))
