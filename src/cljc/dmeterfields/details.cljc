@@ -15,6 +15,15 @@
   #?(:clj
      (style [_]
        (list
+         [:.pull-text {:height (px (- 128 8))
+                       :width (px (- 128 8))
+                       :margin 0
+                       :font-weight 300
+                       :line-height (px (- 128 8))
+                       :font-size (px 72)
+                       :font-family "Abel"
+                       :text-align 'center
+                       :border [[(px 4) 'solid (:dark theme/color)]]}]
          (at-media {:min-width (px 768)}
            [:.detail {:flex 1}
             [:&+.detail {:margin-left (px 16)}]])
@@ -25,16 +34,25 @@
                       :margin-top (px 16)}]
            [:.icon-lrg {:height (px 64)
                         :width (px 64)}]
+           [:.pull-text {:height (px (- 64 4))
+                         :width (px (- 64 4))
+                         :font-size (px 32)
+                         :line-height (px (- 64 4))
+                         :border-width (px 2)}]
            [:.icon-stroke {:stroke-width (px 2)}]
            [:.copy {:margin-left (px 16)
                     :flex 1
                     :margin-top 0}]))))
   Object
   (render [this]
-    (let [{:keys [title svg-id content]} (om/props this)]
+    (let [{:keys [title svg-id content pull-text]} (om/props this)]
       (dom/li #js {:className "detail"}
-        (dom/svg #js {:className "icon-lrg icon-stroke"}
-          (dom/create-element "use" #js {:xlinkHref svg-id}))
+        (when pull-text
+          (dom/h1 #js {:className "pull-text"}
+            pull-text))
+        (when svg-id
+          (dom/svg #js {:className "icon-lrg icon-stroke"}
+            (dom/create-element "use" #js {:xlinkHref svg-id})))
         (dom/p #js {:className "copy"}
           content)))))
 

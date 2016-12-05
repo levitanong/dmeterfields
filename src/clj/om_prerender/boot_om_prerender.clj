@@ -19,7 +19,8 @@
              :content "width=device-width, initial-scale=1"}]
      [:title "D'Meter Fields"]
      (hiccup/include-css "css/styles.css")
-     (hiccup/include-css "https://fonts.googleapis.com/css?family=Roboto:300,400,600")]
+     (hiccup/include-css "https://fonts.googleapis.com/css?family=Roboto:300,400,600")
+     (hiccup/include-css "https://fonts.googleapis.com/css?family=Abel")]
     [:body
      [:div#app html-string]
      (hiccup/include-js "/main.js")]))
