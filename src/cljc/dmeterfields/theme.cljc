@@ -4,7 +4,7 @@
 
 (def color
   {:accent "tomato"
-   :dark "#270815"
+   :dark "#4b2133"
    :light "#e4e1ea"
    :bluish "#92b7b3"
    :dark-bluish (gcolor/as-hex (gcolor/darken "#92b7b3" 40))

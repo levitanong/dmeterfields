@@ -49,11 +49,11 @@
       (dom/li #js {:className "detail"}
         (when pull-text
           (dom/h1 #js {:className "pull-text"
-                       :style #js {:borderColor (or color nil)}}
+                       :style #js {:borderColor (or color (:dark theme/color))}}
             pull-text))
         (when svg-id
           (dom/svg #js {:className "icon-lrg icon-stroke"
-                        :style #js {:stroke (or color nil)}}
+                        :style #js {:stroke (or color (:dark theme/color))}}
             (dom/create-element "use" #js {:xlinkHref svg-id})))
         (dom/p #js {:className "copy"}
           content)))))

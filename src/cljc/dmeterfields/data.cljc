@@ -29,7 +29,7 @@
                :content "A premium mix of forage and grains produced from D’Meter’s own mixing facilities help the cattle produce excellent quality meat."
                :svg-id "icons.svg#wheat"}]}
    {:title "Abattoir and Fabrication"
-    :content "If it's a part of the animal, chances are, we can give it to you. Cut any way you like it."
+    :content "If it's a part of the animal, chances are, we can give it to you. Cut any way you like."
     :color (:light theme/color)
     :bg-color (:reddish theme/color)
     :details [{:title "Primals"
