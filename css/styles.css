@@ -119,7 +119,7 @@ section {
 }
 
 body {
-  font-family: Roboto;
+  font-family: "Roboto", "Arial";
   font-size: 18px;
   color: #270815;
 }
@@ -335,7 +335,7 @@ body {
   font-weight: 300;
   width: 120px;
   border: 4px solid #270815;
-  font-family: Abel;
+  font-family: "Abel", "Arial";
   height: 120px;
   margin: 0;
 }
@@ -445,7 +445,7 @@ body {
 
 h1#brand {
   font-size: 21px;
-  font-family: Pacifico;
+  font-family: "Pacifico", "Georgia", "Arial";
   font-weight: normal;
   line-height: 64px;
   color: #e4e1ea;
