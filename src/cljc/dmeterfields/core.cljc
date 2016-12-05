@@ -20,7 +20,6 @@
      (style [this]
        (list
          (os/get-style details/Details)
-         [:body {:font-family "Roboto"}]
          [:.toolbar {:text-align 'left
                      :padding-left (px 16)
                      :padding-right (px 16)
