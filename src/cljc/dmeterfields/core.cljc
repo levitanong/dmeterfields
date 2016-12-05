@@ -60,6 +60,8 @@
                  :margin-top 0}]
            [:p {:margin-bottom 0
                 :line-height 1.5}]]]
+         [:#integration {:background-color "#92b7b3"}
+          [:#integration-blurb {:font-style "italic"}]]
          (at-media {:max-width (px 767)}
            [:#hero {:height (px 520)}
             [:.hero-text
@@ -77,10 +79,9 @@
           (dom/p nil
             "D'Meter Fields is dedicated to bringing your business the highest quality meat by tightly integrating advanced farm and feed techniques with the processing, storage, and delivery facilities of its sister company, SSMPC.")))
       (details/details-view data/farm)
-      (dom/div #js {:style #js {:backgroundColor "#92b7b3"}}
-        (dom/section nil
-          (dom/div #js {:className "container"
-                        :style #js {:fontStyle "italic"}}
+      (dom/div #js {:id "integration"}
+        (dom/section #js {:id "integration-blurb"}
+          (dom/div #js {:className "container"}
             (dom/h2 nil
               "Unparalleled integration")
             (dom/p nil
