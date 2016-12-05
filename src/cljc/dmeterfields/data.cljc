@@ -9,7 +9,7 @@
               :svg-id "icons.svg#australia"}
              {:title "Strategic Location"
               :content "Strategically located near ample and steady sources of forages and concentrate, we're confident we've chosen the right home for our herd. "
-              :svg-id "icons.svg#map"}
+              :svg-id "icons.svg#forest"}
              {:title "Healthcare"
               :content "Our in-house veterinarian makes sure every animal on our farm is well taken care of, and as healthy as can be."
               :svg-id "icons.svg#stethoscope"}]})
@@ -40,8 +40,11 @@
    {:title "Cold Facilities"
     :content "Good meat is not enough. We want good meat to stay good. SSMPC's storage and delivery facilities are unique in the Philippine market."
     :details [{:title "Cold Fabrication"
-               :content "Even before meat processing starts, we're already ensuring the lifespan of our meat. All our fabrication and processing happens in sanitary cold (10°C) rooms."}
+               :content "Even before meat processing starts, we're already ensuring the lifespan of our meat. All our fabrication and processing happens in sanitary cold (10°C) rooms."
+               :svg-id "icons.svg#snowflake"}
               {:title "Cold Storage"
-               :content "All our products, be they primals or carcasses, are rapidly cooled from 10°C to -20°C to ensure no ice crystals form. These are then stored at -10°C."}
+               :content "All our products, be they primals or carcasses, are rapidly cooled from 10°C to -20°C to ensure no ice crystals form. These are then stored at -10°C."
+               :svg-id "icons.svg#refrigerator"}
               {:title "Cold Delivery"
-               :content "Finally, we use refrigerated vans to bridge the gap between our cold storage and your inventory."}]}])
+               :content "Finally, we use refrigerated vans to bridge the gap between our cold storage and your inventory."
+               :svg-id "icons.svg#truck"}]}])

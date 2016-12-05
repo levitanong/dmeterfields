@@ -77,10 +77,10 @@
           (dom/p nil
             "D'Meter Fields is dedicated to bringing your business the highest quality meat by tightly integrating advanced farm and feed techniques with the processing, storage, and delivery facilities of its sister company, SSMPC.")))
       (details/details-view data/farm)
-      (dom/div #js {:style #js {:background-color "#92b7b3"}}
+      (dom/div #js {:style #js {:backgroundColor "#92b7b3"}}
         (dom/section nil
           (dom/div #js {:className "container"
-                        :style #js {:font-style "italic"}}
+                        :style #js {:fontStyle "italic"}}
             (dom/h2 nil
               "Unparalleled integration")
             (dom/p nil
