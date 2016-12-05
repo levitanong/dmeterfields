@@ -40,7 +40,7 @@
 
 (def typography
   (list
-    [:body {:font-family 'Roboto
+    [:body {:font-family "\"Roboto\", \"Arial\""
             :font-size (px 18)
             :color (:dark theme/color)}]
     [:input {:color (:dark theme/color)}]
