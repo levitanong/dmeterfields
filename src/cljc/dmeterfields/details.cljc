@@ -70,6 +70,8 @@
          (os/get-style Detail)
          #_[:.details {:padding-bottom (px 16)
                      :padding-top (px 16)}]
+         [:.section
+          [:.section-content {:font-style "italic"}]]
          (at-media {:min-width (px 768)}
            [:.details {:display 'flex
                        :flex-direction 'row}])
@@ -86,7 +88,7 @@
                                     (or color "inherit")}}
         (dom/div #js {:className "container"}
           (dom/h2 nil title)
-          (dom/p nil content)
+          (dom/p #js {:className "section-content"} content)
           (dom/ul #js {:className "details"}
             (mapv (fn [detail]
                     (detail-view (assoc detail :color color)))

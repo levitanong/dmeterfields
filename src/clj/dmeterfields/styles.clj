@@ -67,7 +67,7 @@
                   :stroke 'none}]
     [:.icon-stroke {:stroke (:dark theme/color)
                     :fill 'transparent
-                    :stroke-width (px 4)
+                    :stroke-width (px 2)
                     :stroke-linecap 'round
                     :stroke-linejoin 'round}]
     [:.dropdown {:position 'absolute
