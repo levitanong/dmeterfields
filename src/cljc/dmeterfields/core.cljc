@@ -70,7 +70,7 @@
                      :color (:light theme/color)
                      :margin 0}]
          [:#hero {:height (px 640)
-                  :background-color 'black
+                  :background-color (:dark theme/color)
                   :color (:light theme/color)
                   :position 'relative
                   :boz-sizing 'border-box
