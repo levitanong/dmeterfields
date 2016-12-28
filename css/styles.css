@@ -493,17 +493,13 @@ h1#brand {
 }
 
 #hero .hero-text {
-  -webkit-transform: translateY(-50%);
-      -ms-transform: translateY(-50%);
-          transform: translateY(-50%);
-  text-align: center;
-  top: 50%;
-  margin-top: 0;
-  max-width: 720px;
-  z-index: 2;
   padding: 24px;
-  position: relative;
+  margin-top: 0;
   margin-bottom: 0;
+  max-width: 720px;
+  position: relative;
+  z-index: 2;
+  text-align: center;
 }
 
 #hero .hero-text h2 {
@@ -555,7 +551,7 @@ hr.light {
 @media (max-width: 767px) {
 
   #hero {
-    height: 520px;
+    height: 640px;
   }
   
   
