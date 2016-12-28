@@ -26,8 +26,12 @@
      (hiccup/include-js "/main.js")]))
 
 (defn- render-to-file!
+  "Renders to file.
+  reconciler and component are resolved here to refresh them each time they are changed."
   [out-file reconciler component]
-  (let [c (om/add-root! reconciler component nil)
+  (let [r (some-> reconciler resolve var-get)
+        c* (some-> component resolve var-get)
+        c (om/add-root! r c* nil)
         html-string (dom/render-to-str c)]
     (doto out-file
       io/make-parents
@@ -44,11 +48,7 @@
    c root SYM sym "The root component."]
   (let [tmp (boot/tmp-dir!)
         src-paths (vec (boot/get-env :source-paths))
-        ns-pod (ns-tracker-pod)
-        reconciler (when (resolve reconciler)
-                     (-> reconciler resolve var-get))
-        root (when (resolve root)
-               (-> root resolve var-get))]
+        ns-pod (ns-tracker-pod)]
     (pod/with-eval-in ns-pod
       (require 'ns-tracker.core)
       (def cns (ns-tracker.core/ns-tracker ~src-paths)))

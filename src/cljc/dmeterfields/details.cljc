@@ -49,11 +49,11 @@
       (dom/li #js {:className "detail"}
         (when pull-text
           (dom/h1 #js {:className "pull-text"
-                       :style #js {:borderColor (or color nil)}}
+                       :style #js {:borderColor (or color (:dark theme/color))}}
             pull-text))
         (when svg-id
           (dom/svg #js {:className "icon-lrg icon-stroke"
-                        :style #js {:stroke (or color nil)}}
+                        :style #js {:stroke (or color (:dark theme/color))}}
             (dom/create-element "use" #js {:xlinkHref svg-id})))
         (dom/p #js {:className "copy"}
           content)))))
@@ -70,6 +70,9 @@
          (os/get-style Detail)
          #_[:.details {:padding-bottom (px 16)
                      :padding-top (px 16)}]
+         [:h2 {:text-align 'center}]
+         [:.section-content {:font-style "italic"
+                             :text-align 'center}]
          (at-media {:min-width (px 768)}
            [:.details {:display 'flex
                        :flex-direction 'row}])
@@ -79,18 +82,13 @@
   (render [this]
     (let [{:keys [details title content
                   bg-color color]} (om/props this)]
-      (dom/section #js {:className "section"
-                        :style #js {:backgroundColor
-                                    (or bg-color "transparent")
-                                    :color
-                                    (or color "inherit")}}
-        (dom/div #js {:className "container"}
-          (dom/h2 nil title)
-          (dom/p nil content)
-          (dom/ul #js {:className "details"}
-            (mapv (fn [detail]
-                    (detail-view (assoc detail :color color)))
-              details)))))))
+      (dom/div #js {:className "container"}
+        (dom/h2 nil title)
+        (dom/p #js {:className "section-content"} content)
+        (dom/ul #js {:className "details"}
+          (mapv (fn [detail]
+                  (detail-view detail))
+            details))))))
 
 (def details-view (om/factory Details
                     {:keyfn :title}))

@@ -68,7 +68,6 @@
       :pretty-print true)
     (cljs-repl)
     (cljs
-      :source-map true
       :optimizations :none
       :compiler-options {:preloads '[devtools.preload]})
     (autoprefixer :files ["styles.css"])))

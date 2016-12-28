@@ -62,4 +62,16 @@
   <circle vector-effect="non-scaling-stroke" cx="11.5" cy="8.5" r="8"/>
   <circle vector-effect="non-scaling-stroke" cx="11.5" cy="8.5" r="5.5"/>
 </symbol>
+<symbol id="farmer" viewBox="0 0 24 24">
+  <path vector-effect="non-scaling-stroke" d="M9.437 15.5l-6.341 1.754A4 4 0 0 0 .5 21v2.5h23V21a4 4 0 0 0-2.596-3.746L14.583 15.5M9 9.502c0-.553.448-.5 1-.5.553 0 1-.053 1 .5m2 0c0-.553.448-.5 1-.5.553 0 1-.053 1 .5"/>
+  <path vector-effect="non-scaling-stroke" d="M17 6.373V8.5c1.5 0 1.5 3 0 3 0 3-3.5 5.027-5 5.027S7 14.5 7 11.5c-1.5 0-1.5-3 0-3V6.373"/>
+  <path vector-effect="non-scaling-stroke" d="M5.911 10.393C3.896 9.934 2.5 9.256 2.5 8.5 2.5 7.119 6.753 6 12 6s9.5 1.119 9.5 2.5c0 .756-1.393 1.435-3.411 1.893"/>
+  <path vector-effect="non-scaling-stroke" d="M20 7.151c-2.102-1.456-3.485-3.38-4.153-5.308A2 2 0 0 0 13.958.5h-3.915c-.852 0-1.61.539-1.889 1.344C7.485 3.771 6.102 5.695 4 7.151M5 23.5l1-3h12l1 3M5.511 16.586L6 20.5h2.5l-.512-4.599m10.501.685L18 20.5h-2.5l.512-4.599"/>
+</symbol>
+<symbol id="ice-truck" viewBox="0 0 24 24">
+  <circle vector-effect="non-scaling-stroke" cx="8" cy="18" r="2.5"/>
+  <circle vector-effect="non-scaling-stroke" cx="19" cy="18" r="2.5"/>
+  <path vector-effect="non-scaling-stroke" d="M8.5 13.5v-10h15v14m-23 1v-7c0-2.199 1.801-4 4-4h4m4 10h2m-14 1h3"/>
+  <path vector-effect="non-scaling-stroke" d="M2.5 13.5V11c0-.825.676-1.5 1.5-1.5h2.5m-6 7H4"/>
+</symbol>
 </svg>
