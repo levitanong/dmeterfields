@@ -102,8 +102,7 @@
                         :top (percent 50)
                         :left 0
                         :right 0
-                        :z-index 0
-                        :border-bottom [[(px 1) 'dashed (:dark theme/color)]]}]
+                        :z-index 0}]
           [:#integration-blurb {:border [[(px 1) 'solid (:dark theme/color)]]
                                 :position 'relative
                                 :z-index 1
@@ -113,11 +112,14 @@
                                 :margin [[0 'auto]]
                                 :font-style 'italic
                                 :text-align 'center}]]
+         [:hr {:border-top 'none}
+          [:&.dark {:border-bottom [[(px 1) 'dashed (:dark theme/color)]]}]
+          [:&.light {:border-bottom [[(px 1) 'dashed (:light theme/color)]]}]]
          (at-media {:max-width (px 767)}
            [:#hero {:height (px 520)}
             [:.hero-text
              [:h2 {:font-size (px 36)}]]])
-         [:footer {:background-color "#222"
+         [:footer {:background-color (:dark theme/color)
                    :padding [[(px 16) 0]]
                    :color (:light theme/color)}])))
   static om/IQuery
@@ -140,7 +142,7 @@
         (dom/section nil
           (details/details-view data/farm))
         (dom/section #js {:id "integration"}
-          (dom/div #js {:className "separator"})
+          (dom/hr #js {:className "separator dark"})
           (dom/div #js {:className "container"}
             (dom/div #js {:id "integration-blurb"}
               (dom/h2 nil
@@ -166,15 +168,21 @@
                       label))))))
           (case current-tab
             :abattoir (details/details-view data/abattoir)
-            :cold (details/details-view data/cold)
-            (dom/div nil "something went wrong")))
+            :cold (details/details-view data/cold)))
         (dom/footer nil
           (dom/div #js {:className "container"}
-            (call-to-action)
-            (dom/p #js {:className "faint"}
-              "Australia Illustration by Hea Poh Lin from the Noun Project")
+            (dom/div #js {:style #js {:textAlign "center"
+                                      :marginBottom "64px"}}
+              (call-to-action)
+              (dom/h2 nil "We'd love to hear from you!")))
+          (dom/hr #js {:className "light"})
+          (dom/div #js {:className "container h stack"
+                        :style #js {:justifyContent "space-between"
+                                    :alignItems "center"}}
             (dom/p nil
-              "Copyright D'Meter Fields Corporation 2016")))))))
+              "Copyright D'Meter Fields Corporation 2016")
+            (dom/small #js {:className "faint"}
+              "Australia Illustration by Hea Poh Lin from the Noun Project")))))))
 
 (defmulti read om/dispatch)
 (defmethod read :default
