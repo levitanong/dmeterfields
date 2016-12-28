@@ -76,7 +76,7 @@
                   :boz-sizing 'border-box
                   :padding (px 0)}
           [:&:before {:content "\"\""
-                     :background-image "url(../steak.jpg)"
+                     :background-image "url(http://dmeterfields.com/steak.jpg)"
                      :background-size 'cover
                      :background-position [[(percent 50) 0]]
                      :background-repeat 'no-repeat
