@@ -121,11 +121,11 @@ section {
 body {
   font-family: "Source Sans Pro", "Arial";
   font-size: 18px;
-  color: #270815;
+  color: #4b2133;
 }
 
 input {
-  color: #270815;
+  color: #4b2133;
 }
 
 .faint {
@@ -151,12 +151,12 @@ input {
 }
 
 .icon-fill {
-  fill: #270815;
+  fill: #4b2133;
   stroke: none;
 }
 
 .icon-stroke {
-  stroke: #270815;
+  stroke: #4b2133;
   fill: transparent;
   stroke-width: 4px;
   stroke-linecap: round;
@@ -239,7 +239,7 @@ input {
 }
 
 .toolbar-main {
-  background-color: tomato;
+  background-color: #ff6347;
   color: white;
   border-bottom: none;
 }
@@ -247,14 +247,20 @@ input {
 .button {
   border-width: 0px;
   height: 36px;
+  border: 1px solid #4b2133;
   padding: 0px 12px;
   white-space: nowrap;
   outline: none;
   cursor: pointer;
   font-size: 16px;
-  background-color: white;
+  background-color: transparent;
   border-radius: 3px;
-  color: tomato;
+  color: #4b2133;
+}
+
+.button.active {
+  background-color: #4b2133;
+  color: white;
 }
 
 .button.toolbar-button {
@@ -279,8 +285,8 @@ input {
 }
 
 .button.outlined {
-  border: 1px solid #270815;
-  color: #270815;
+  border: 1px solid #4b2133;
+  color: #4b2133;
 }
 
 .button.outlined.inverted {
@@ -289,18 +295,18 @@ input {
 }
 
 .button.underlined {
-  box-shadow: 0 2px 0 #270815;
+  box-shadow: 0 2px 0 #4b2133;
   border-radius: 0;
   background-color: transparent;
 }
 
 .button.accented {
-  background-color: tomato;
+  background-color: #ff6347;
   color: white;
 }
 
 .button.darkened {
-  background-color: #270815;
+  background-color: #4b2133;
   color: white;
 }
 
@@ -324,17 +330,13 @@ input {
   border-right-width: 1px;
 }
 
-body {
-  background-color: #eee;
-}
-
 .pull-text {
   line-height: 120px;
   text-align: center;
   font-size: 72px;
   font-weight: 300;
   width: 120px;
-  border: 4px solid #270815;
+  border: 4px solid #4b2133;
   font-family: "Abel", "Arial";
   height: 120px;
   margin: 0;
@@ -402,6 +404,15 @@ body {
 
 }
 
+h2 {
+  text-align: center;
+}
+
+.section-content {
+  font-style: italic;
+  text-align: center;
+}
+
 @media (min-width: 768px) {
 
   .details {
@@ -426,17 +437,26 @@ body {
 
 }
 
+.call-to-action {
+  color: #e4e1ea;
+  font-size: 24px;
+  background-color: transparent;
+  cursor: pointer;
+  padding: 16px 24px;
+  text-decoration: none;
+  display: inline-block;
+  border: 1px solid #e4e1ea;
+  border-radius: 3px;
+}
+
 .toolbar {
-  right: 0;
-  top: 0;
-  height: 64px;
   text-align: left;
-  position: absolute;
-  z-index: 2;
-  background-color: hsla(0, 0%, 0%, 0.4);
-  padding-right: 16px;
   padding-left: 16px;
-  left: 0;
+  padding-right: 16px;
+  height: 64px;
+  position: relative;
+  border-bottom: 1px dashed #e4e1ea;
+  z-index: 2;
 }
 
 h1#brand {
@@ -454,10 +474,10 @@ h1#brand {
   color: #e4e1ea;
   position: relative;
   boz-sizing: border-box;
-  padding: 24px;
+  padding: 0px;
 }
 
-#hero:after {
+#hero:before {
   background-position: 50% 0;
   right: 0;
   top: 0;
@@ -473,20 +493,21 @@ h1#brand {
 }
 
 #hero .hero-text {
-  top: 50%;
   -webkit-transform: translateY(-50%);
       -ms-transform: translateY(-50%);
           transform: translateY(-50%);
-  margin-top: 0;
-  margin-bottom: 0;
-  max-width: 720px;
   text-align: center;
-  position: relative;
+  top: 50%;
+  margin-top: 0;
+  max-width: 720px;
   z-index: 2;
+  padding: 24px;
+  position: relative;
+  margin-bottom: 0;
 }
 
 #hero .hero-text h2 {
-  font-size: 48px;
+  font-size: 36px;
   margin-top: 0;
 }
 
@@ -496,11 +517,39 @@ h1#brand {
 }
 
 #integration {
-  background-color: #92b7b3;
+  position: relative;
+}
+
+#integration .separator {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  z-index: 0;
 }
 
 #integration #integration-blurb {
   font-style: italic;
+  text-align: center;
+  background-color: white;
+  max-width: 640px;
+  z-index: 1;
+  padding: 16px 32px;
+  position: relative;
+  border: 1px solid #4b2133;
+  margin: 0 auto;
+}
+
+hr {
+  border-top: none;
+}
+
+hr.dark {
+  border-bottom: 1px dashed #4b2133;
+}
+
+hr.light {
+  border-bottom: 1px dashed #e4e1ea;
 }
 
 @media (max-width: 767px) {
@@ -518,7 +567,7 @@ h1#brand {
 }
 
 footer {
-  background-color: #222;
+  background-color: #4b2133;
   padding: 16px 0;
   color: #e4e1ea;
 }
