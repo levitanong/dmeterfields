@@ -1,7 +1,7 @@
 (ns dmeterfields.styles
   (:require
    [dmeterfields.theme :as theme]
-   [garden.color :refer [rgba]]
+   [garden.color :as color :refer [rgba lighten]]
    [garden.stylesheet :refer [at-media]]
    [garden.units :refer [px s percent]]))
 

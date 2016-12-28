@@ -5,13 +5,44 @@
    [dmeterfields.theme :as theme]
    [om.next :as om :refer [defui]]
    [om.dom :as dom]
-   #?@(:cljs [[goog.dom :as gdom]]
-       :clj [[garden.color :refer [rgba]]
+   #?@(:cljs [[goog.dom :as gdom]
+              [goog.string :as gstring]]
+       :clj [[garden.color :as color :refer [rgba]]
              [garden.stylesheet :refer [at-media]]
              [garden.units :refer [px percent]]
              [om-style.core :as os]])))
 
 (def app-state (atom {}))
+
+(def obfuscated-email
+  (let [o "&#099;&#111;&#110;&#116;&#097;&#099;&#116;&#064;&#100;&#109;&#101;&#116;&#101;&#114;&#102;&#105;&#101;&#108;&#100;&#115;&#046;&#099;&#111;&#109;"]
+    #?(:cljs (gstring/unescapeEntities o)
+       :clj o)))
+
+(defui CallToAction
+  #?(:clj static)
+  #?(:clj os/Style)
+  #?(:clj
+     (style [this]
+       (list
+         [:.call-to-action
+          {:color 'white
+           :cursor 'pointer
+           :border-radius (px 3)
+           :text-decoration 'none
+           :display 'inline-block
+           :padding [[(px 16) (px 24)]]
+           :font-size (px 24)
+           :background-color (:accent theme/color)
+           :border [[(px 1) 'solid (color/lighten (:accent theme/color) 20)]]}])))
+  Object
+  (render [this]
+    (dom/a #js {:className "call-to-action"
+                :style #js {:margin-top "32px"}
+                :href (str "mailto:" obfuscated-email)}
+      "Contact Us!")))
+
+(def call-to-action (om/factory CallToAction))
 
 (defui Root
   #?(:clj static)
@@ -20,6 +51,7 @@
      (style [this]
        (list
          (os/get-style details/Details)
+         (os/get-style CallToAction)
          [:.toolbar {:text-align 'left
                      :padding-left (px 16)
                      :padding-right (px 16)
@@ -57,7 +89,7 @@
                         :text-align 'center
                         :position 'relative
                         :z-index 2}
-           [:h2 {:font-size (px 48)
+           [:h2 {:font-size (px 36)
                  :margin-top 0}]
            [:p {:margin-bottom 0
                 :line-height 1.5}]]]
@@ -81,7 +113,8 @@
           (dom/h2 nil
             "High quality meat from the farm all the way down to your business.")
           (dom/p nil
-            "D'Meter Fields is dedicated to bringing your business the highest quality meat by tightly integrating advanced farm and feed techniques with the processing, storage, and delivery facilities of its sister company, SSMPC.")))
+            "D'Meter Fields is dedicated to bringing your business the highest quality meat by tightly integrating advanced farm and feed techniques with the processing, storage, and delivery facilities of its sister company, SSMPC.")
+          (call-to-action)))
       (details/details-view data/farm)
       (dom/div #js {:id "integration"}
         (dom/section #js {:id "integration-blurb"}
@@ -94,6 +127,7 @@
           data/integration))
       (dom/footer nil
         (dom/div #js {:className "container"}
+          (call-to-action)
           (dom/p #js {:className "faint"}
             "Australia Illustration by Hea Poh Lin from the Noun Project")
           (dom/p nil

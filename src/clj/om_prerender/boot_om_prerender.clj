@@ -40,13 +40,14 @@
 
 (deftask om-prerender
   "Prerender frontend UI to index.html"
-  [r reconciler SYM sym "The reconciler."
+  [s state SYM sym "The state."
    c root SYM sym "The root component."]
   (let [tmp (boot/tmp-dir!)
         src-paths (vec (boot/get-env :source-paths))
         ns-pod (ns-tracker-pod)
-        reconciler (when (resolve reconciler)
-                     (-> reconciler resolve var-get))
+        state (when (resolve state)
+                (-> state resolve var-get))
+        reconciler (om/reconciler {:state state})
         root (when (resolve root)
                (-> root resolve var-get))]
     (pod/with-eval-in ns-pod

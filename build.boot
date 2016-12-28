@@ -59,7 +59,7 @@
     (reload)
     (speak)
     (om-prerender
-      :reconciler 'dmeterfields.core/reconciler
+      :state 'dmeterfields.core/app-state
       :root 'dmeterfields.core/Root)
     (om-style
       :root 'dmeterfields.core/Root

@@ -3,7 +3,7 @@
    [garden.color :as gcolor]))
 
 (def color
-  {:accent "tomato"
+  {:accent (:tomato gcolor/color-name->hex)
    :dark "#4b2133"
    :light "#e4e1ea"
    :bluish "#92b7b3"
