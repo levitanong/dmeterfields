@@ -84,15 +84,13 @@
                      :z-index 1
                      :opacity 0.6
                      :top 0 :left 0 :right 0 :bottom 0}]
-          [:.hero-text {:top (percent 50)
-                        :transform "translateY(-50%)"
-                        :padding (px 24)
+          [:.hero-text {:padding (px 24)
                         :margin-top 0
                         :margin-bottom 0
                         :max-width (px 720)
-                        :text-align 'center
                         :position 'relative
-                        :z-index 2}
+                        :z-index 2
+                        :text-align 'center}
            [:h2 {:font-size (px 36)
                  :margin-top 0}]
            [:p {:margin-bottom 0
@@ -116,7 +114,7 @@
           [:&.dark {:border-bottom [[(px 1) 'dashed (:dark theme/color)]]}]
           [:&.light {:border-bottom [[(px 1) 'dashed (:light theme/color)]]}]]
          (at-media {:max-width (px 767)}
-           [:#hero {:height (px 520)}
+           [:#hero {:height (px 640)}
             [:.hero-text
              [:h2 {:font-size (px 36)}]]])
          [:footer {:background-color (:dark theme/color)
@@ -129,11 +127,12 @@
   (render [this]
     (let [{:keys [app/current-tab]} (om/props this)]
       (dom/div nil
-        (dom/section #js {:id "hero"}
+        (dom/section #js {:id "hero"
+                          :className "v stack"}
           (dom/div #js {:className "toolbar"}
             (dom/h1 #js {:id "brand"}
               "D‘Meter Fields"))
-          (dom/div #js {:className "container hero-text"}
+          (dom/div #js {:className "v stack grow container hero-text center center-justify"}
             (dom/h2 nil
               "High quality meat from the farm all the way down to your business.")
             (dom/p nil
