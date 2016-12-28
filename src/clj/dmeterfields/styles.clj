@@ -67,7 +67,7 @@
                   :stroke 'none}]
     [:.icon-stroke {:stroke (:dark theme/color)
                     :fill 'transparent
-                    :stroke-width (px 2)
+                    :stroke-width (px 4)
                     :stroke-linecap 'round
                     :stroke-linejoin 'round}]
     [:.dropdown {:position 'absolute
@@ -102,16 +102,19 @@
 
 (def buttons
   (list
-    [:.button {:background-color 'white
-               :color (:accent theme/color)
+    [:.button {:background-color 'transparent
+               :color (:dark theme/color)
                :outline 'none
                :border-width (px 0)
                :border-radius (px 3)
+               :border [[(px 1) 'solid (:dark theme/color)]]
                :font-size (px 16)
                :height (px 36)
                :padding [[(px 0) (px 12)]]
                :cursor 'pointer
                :white-space 'nowrap}
+     [:&.active {:background-color (:dark theme/color)
+                 :color 'white}]
      [:&.toolbar-button {:height (px 56)
                          :border-radius 0}]
      [:&.lowercase {:text-transform 'lowercase}]
@@ -146,5 +149,4 @@
     layout
     typography
     components
-    buttons
-    [:body {:background-color "#eee"}]))
+    buttons))

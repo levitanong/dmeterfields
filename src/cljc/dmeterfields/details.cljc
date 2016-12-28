@@ -70,8 +70,9 @@
          (os/get-style Detail)
          #_[:.details {:padding-bottom (px 16)
                      :padding-top (px 16)}]
-         [:.section
-          [:.section-content {:font-style "italic"}]]
+         [:h2 {:text-align 'center}]
+         [:.section-content {:font-style "italic"
+                             :text-align 'center}]
          (at-media {:min-width (px 768)}
            [:.details {:display 'flex
                        :flex-direction 'row}])
@@ -81,18 +82,13 @@
   (render [this]
     (let [{:keys [details title content
                   bg-color color]} (om/props this)]
-      (dom/section #js {:className "section"
-                        :style #js {:backgroundColor
-                                    (or bg-color "transparent")
-                                    :color
-                                    (or color "inherit")}}
-        (dom/div #js {:className "container"}
-          (dom/h2 nil title)
-          (dom/p #js {:className "section-content"} content)
-          (dom/ul #js {:className "details"}
-            (mapv (fn [detail]
-                    (detail-view (assoc detail :color color)))
-              details)))))))
+      (dom/div #js {:className "container"}
+        (dom/h2 nil title)
+        (dom/p #js {:className "section-content"} content)
+        (dom/ul #js {:className "details"}
+          (mapv (fn [detail]
+                  (detail-view detail))
+            details))))))
 
 (def details-view (om/factory Details
                     {:keyfn :title}))

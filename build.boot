@@ -59,7 +59,7 @@
     (reload)
     (speak)
     (om-prerender
-      :state 'dmeterfields.core/app-state
+      :reconciler 'dmeterfields.core/reconciler
       :root 'dmeterfields.core/Root)
     (om-style
       :root 'dmeterfields.core/Root
@@ -68,7 +68,6 @@
       :pretty-print true)
     (cljs-repl)
     (cljs
-      :source-map true
       :optimizations :none
       :compiler-options {:preloads '[devtools.preload]})
     (autoprefixer :files ["styles.css"])))
