@@ -112,6 +112,7 @@
                :height (px 36)
                :padding [[(px 0) (px 12)]]
                :cursor 'pointer
+               :margin 0
                :white-space 'nowrap}
      [:&.active {:background-color (:dark theme/color)
                  :color 'white}]
