@@ -247,6 +247,7 @@ input {
 .button {
   border-width: 0px;
   height: 36px;
+  margin: 0;
   border: 1px solid #4b2133;
   padding: 0px 12px;
   white-space: nowrap;
@@ -487,7 +488,7 @@ h1#brand {
   content: "";
   background-size: cover;
   bottom: 0;
-  background-image: url(../steak.jpg);
+  background-image: url(http://dmeterfields.com/steak.jpg);
   opacity: 0.6;
   left: 0;
 }
