@@ -5,7 +5,7 @@
 (def farm
   {:title "The Farm"
    ;; insert a map
-   :content "Situated in San Simon, Pampanga, the D'Meter Fields Farm is dedicated to the breeding and fattening of cattle within the confines of a clean and bovine-friendly environment."
+   :content "Situated in Central Luzon, the D'Meter Fields Farm is dedicated to the breeding and fattening of cattle within the confines of a clean and bovine-friendly environment."
    :details [{:title "Australian Cattle"
               :content "The farm has a total land area of 30 hectares, and is home to a few thousand Brahmans imported live from Australia."
               :svg-id "icons.svg#australia"}
@@ -30,14 +30,14 @@
 
 (def abattoir
   {:title "Abattoir and Fabrication"
-   :content "If it's a part of the animal, chances are, we can give it to you. Cut any way you like."
+   :content "We cut meat, not corners. Clients can rest easy knowing that all processed meat from SSMPC adhere exactly to specification."
    :color (:light theme/color)
    :bg-color (:reddish theme/color)
    :details [{:title "Primals"
               :content "SSMPC's fabrication technicians extract pork, beef, and chicken primal cuts from the carcasses. You can be sure the cuts are subject to stringent quality control."
               :svg-id "icons.svg#quality"}
              {:title "Processed Food"
-              :content "Want sausages, luncheon meats, and other processed meats? We have you covered."
+              :content "We also make processed meat: our corned beef, beef tapa, tocino, longganiza are made with the same dedication to quality as everything else we do."
               :svg-id "icons.svg#sausage"}
              {:title "Carcass"
               :content "For those who want to do their own processing, we can provide beef and hog carcasses, fresh or frozen."
