@@ -121,11 +121,11 @@ section {
 body {
   font-family: "Source Sans Pro", "Arial";
   font-size: 18px;
-  color: #4b2133;
+  color: #013220;
 }
 
 input {
-  color: #4b2133;
+  color: #013220;
 }
 
 .faint {
@@ -151,12 +151,12 @@ input {
 }
 
 .icon-fill {
-  fill: #4b2133;
+  fill: #013220;
   stroke: none;
 }
 
 .icon-stroke {
-  stroke: #4b2133;
+  stroke: #013220;
   fill: transparent;
   stroke-width: 4px;
   stroke-linecap: round;
@@ -238,17 +238,11 @@ input {
   border-bottom: 1px solid hsla(0, 0%, 0%, 0.1);
 }
 
-.toolbar-main {
-  background-color: #ff6347;
-  color: white;
-  border-bottom: none;
-}
-
 .button {
   border-width: 0px;
   height: 36px;
   margin: 0;
-  border: 1px solid #4b2133;
+  border: 1px solid #013220;
   padding: 0px 12px;
   white-space: nowrap;
   outline: none;
@@ -256,11 +250,11 @@ input {
   font-size: 16px;
   background-color: transparent;
   border-radius: 3px;
-  color: #4b2133;
+  color: #013220;
 }
 
 .button.active {
-  background-color: #4b2133;
+  background-color: #013220;
   color: white;
 }
 
@@ -286,8 +280,8 @@ input {
 }
 
 .button.outlined {
-  border: 1px solid #4b2133;
-  color: #4b2133;
+  border: 1px solid #013220;
+  color: #013220;
 }
 
 .button.outlined.inverted {
@@ -296,18 +290,18 @@ input {
 }
 
 .button.underlined {
-  box-shadow: 0 2px 0 #4b2133;
+  box-shadow: 0 2px 0 #013220;
   border-radius: 0;
   background-color: transparent;
 }
 
 .button.accented {
-  background-color: #ff6347;
+  background-color: ;
   color: white;
 }
 
 .button.darkened {
-  background-color: #4b2133;
+  background-color: #013220;
   color: white;
 }
 
@@ -337,7 +331,7 @@ input {
   font-size: 72px;
   font-weight: 300;
   width: 120px;
-  border: 4px solid #4b2133;
+  border: 4px solid #013220;
   font-family: "Abel", "Arial";
   height: 120px;
   margin: 0;
@@ -533,7 +527,7 @@ h1#brand {
   z-index: 1;
   padding: 16px 32px;
   position: relative;
-  border: 1px solid #4b2133;
+  border: 1px solid #013220;
   margin: 0 auto;
 }
 
@@ -542,7 +536,7 @@ hr {
 }
 
 hr.dark {
-  border-bottom: 1px dashed #4b2133;
+  border-bottom: 1px dashed #013220;
 }
 
 hr.light {
@@ -564,7 +558,7 @@ hr.light {
 }
 
 footer {
-  background-color: #4b2133;
+  background-color: #013220;
   padding: 16px 0;
   color: #e4e1ea;
 }
