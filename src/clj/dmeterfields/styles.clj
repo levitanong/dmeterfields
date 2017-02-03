@@ -95,10 +95,7 @@
      [:&>.container {:height (px 56)}]
      [:a {:color 'white
           :text-decoration 'none}]]
-    [:.toolbar-lined {:border-bottom [[(px 1) 'solid (rgba 0 0 0 0.1)]]}]
-    [:.toolbar-main {:background-color (:accent theme/color)
-                     :color 'white
-                     :border-bottom 'none}]))
+    [:.toolbar-lined {:border-bottom [[(px 1) 'solid (rgba 0 0 0 0.1)]]}]))
 
 (def buttons
   (list
