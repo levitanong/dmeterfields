@@ -24,12 +24,14 @@
                        :font-family "\"Abel\", \"Arial\""
                        :text-align 'center
                        :border [[(px 4) 'solid (:dark theme/color)]]}]
+         [:.detail {:display 'flex}]
          (at-media {:min-width (px 768)}
-           [:.detail {:flex 1}
+           [:.detail {:flex 1
+                      :flex-direction 'column
+                      :align-items 'center}
             [:&+.detail {:margin-left (px 16)}]])
          (at-media {:max-width (px 767)}
-           [:.detail {:display 'flex
-                      :flex-direction 'row
+           [:.detail {:flex-direction 'row
                       :align-items 'flex-start
                       :margin-top (px 16)}]
            [:.icon-lrg {:height (px 64)

@@ -59,10 +59,7 @@
                      :height (px 64)
                      :position 'relative
                      :border-bottom [[(px 1) 'dashed (:light theme/color)]]
-                     ;; :background-color (rgba 0 0 0 0.4)
-                     :z-index 2
-                     ;; :top 0 :left 0 :right 0
-                     }]
+                     :z-index 2}]
          [:h1#brand {:font-size (px 32)
                      :font-family "\"Pacifico\", \"Georgia\", \"Arial\""
                      :font-weight 'normal
