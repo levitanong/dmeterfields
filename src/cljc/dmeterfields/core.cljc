@@ -59,16 +59,15 @@
                      :height (px 64)
                      :position 'relative
                      :border-bottom [[(px 1) 'dashed (:light theme/color)]]
-                     ;; :background-color (rgba 0 0 0 0.4)
-                     :z-index 2
-                     ;; :top 0 :left 0 :right 0
-                     }]
-         [:h1#brand {:font-size (px 21)
+                     :z-index 2}]
+         [:h1#brand {:font-size (px 32)
                      :font-family "\"Pacifico\", \"Georgia\", \"Arial\""
                      :font-weight 'normal
                      :line-height (px 64)
                      :color (:light theme/color)
-                     :margin 0}]
+                     :margin [[0 0 (px 24) 0]]
+                     :padding-bottom (px 16)
+                     :border-bottom [[(px 1) 'dashed 'white]]}]
          [:#hero {:height (px 640)
                   :background-color (:maroon theme/color)
                   :color (:light theme/color)
@@ -129,10 +128,10 @@
       (dom/div nil
         (dom/section #js {:id "hero"
                           :className "v stack"}
-          (dom/div #js {:className "toolbar"}
-            (dom/h1 #js {:id "brand"}
-              "D‘Meter Fields"))
+          #_(dom/div #js {:className "toolbar"})
           (dom/div #js {:className "v stack grow container hero-text center center-justify"}
+            (dom/h1 #js {:id "brand"}
+              "D‘Meter Fields")
             (dom/h2 nil
               "High quality meat from the farm all the way down to your business.")
             (dom/p nil
@@ -147,7 +146,7 @@
               (dom/h2 nil
                 "Vertical Integration")
               (dom/p nil
-                "Together with our sister company SN Smn Meat Products Corporation (SSMPC), we make sure our high quality meat from the farm stays high quality all the way to your business. Here's how we do it."))))
+                "Together with our sister company Sn Smn Meat Products Corporation (SSMPC), we make sure our high quality meat from the farm stays high quality all the way to your business. Here's how we do it."))))
         (dom/section nil
           (dom/div #js {:style #js {:textAlign "center"}}
             (dom/div #js {:className "tight button-group"
